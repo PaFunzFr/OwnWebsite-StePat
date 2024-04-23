@@ -83,6 +83,8 @@ header ::-webkit-scrollbar {
     --col-gradient-content1: linear-gradient(to left top, #2f484c, #2a4044, #25383c, #203034, #1b292c);
     --col-gradient-content2: linear-gradient(to left top, #0f3035, #132e33, #162c31, #192b2e, #1b292c);
     --col-gradient-content3: linear-gradient(to left top, #0f30357b, #132e337a, #162c3181, #192b2e, #1b292c);
+    --col-gradient-content4: linear-gradient(to left top, #e5ded1, #ddd5c4, #d6cbb7, #cec2ab, #c6b99e);
+   
     
     /* border radius */
     --radius-6: 6px;
@@ -165,28 +167,31 @@ main {
     color: white;
 }
 .aboutMe-content span {
-    color: var(--col-orange2-100);
+    background: var(--col-gradient-content4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
 .aboutMe img {
+    display: flex;
     margin-top: 10px;
     position: relative;
     height: auto;
     width: 95%;
     max-width: 600px;
     object-fit: contain;
-    left: 50%;
-    transform: translate(-50%, 5px);
+    transform: translate(0%, 5px);
+    margin: auto;
 }
 
 .topics {
     display: flex;
     flex-direction: column;
+    margin: auto;
     position: relative;
     width: 90vw;
     height: 350px;
-    left: 50%;
-    transform: translateX(-50%);
     background: var(--col-gradient-content2);
     border: 0.3vh solid var(--col-blue1-100);
     border-radius: var(--radius-8);
@@ -205,18 +210,30 @@ main {
     margin-top: -10px;
 }
 
-#loopVideo {
-    position: relative;
-    left: 50%;
-    top: 10px;
-    transform: translateX(-50%);
-    height: 65%;
-    max-height: 400px;
-    width: 90%;
-    max-width: 800px;
+.topic-slider {
+    display: flex;
+    margin: auto;
+    flex-direction: column;
+    padding: 0;
+    margin: 20px 0px;
+}
+
+.slider-item {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    width: 90vw;
+    height: 210px;
+}
+
+.slider-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.slider-banner {
     object-fit: cover;
-    opacity: 0.8;
-    border-radius: var(--radius-6);
+    height: 100%;
 }
 
 .btns-topic {
