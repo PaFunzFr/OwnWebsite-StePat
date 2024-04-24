@@ -31,8 +31,12 @@ header ::-webkit-scrollbar {
     --fontSize-4: 1.6rem;
     --fontSize-5: 1.5rem;
     --fontSize-6: 1.4rem;
-    --fontSize-7: 1.2rem;
-    --fontSize-8: 1.3rem;
+    --fontSize-7: 1.3rem;
+    --fontSize-8: 1.4rem;
+    --fontSize-9: 1.2rem;
+    --fontSize-9: 0.9rem;
+    --fontSize-10: 0.8rem;
+
 
     /* font weight */
     --font-weight-norm: 500;
@@ -78,21 +82,26 @@ header ::-webkit-scrollbar {
     --col-blue3-075: hsla(189, 32%, 41%, 0.75);
     --col-blue3-050: hsla(189, 32%, 41%, 0.5);
     --col-blue3-025: hsla(189, 32%, 41%, 0.25);
+
+    --col-blue4-100: hsla(190, 41%, 70%, 1);
+    --col-blue4-075: hsla(190, 41%, 70%, 0.75);
+    --col-blue4-050: hsla(190, 41%, 70%, 0.5);
+    --col-blue4-025: hsla(190, 41%, 70%, 0.25);
+
     
     --col-gradient-main: linear-gradient(to top, #535e40, #475b43, #3c5847, #35544a, #304f4c, #2d4a4a, #2b4547, #2a4044, #263a3e, #223438, #1f2f32, #1b292c);
     --col-gradient-content1: linear-gradient(to left top, #2f484c, #2a4044, #25383c, #203034, #1b292c);
     --col-gradient-content2: linear-gradient(to left top, #0f3035, #132e33, #162c31, #192b2e, #1b292c);
     --col-gradient-content3: linear-gradient(to left top, #0f30357b, #132e337a, #162c3181, #192b2e, #1b292c);
     --col-gradient-content4: linear-gradient(to left top, #e5ded1, #ddd5c4, #d6cbb7, #cec2ab, #c6b99e);
+    --col-gradient-content5: linear-gradient(to bottom, #1b292c, #1c2b2f, #1e2e31, #1f3034, #203337, #21353a, #23383c, #243a3f, #263d42, #284045, #2b4349, #2d464c);
    
-    
     /* border radius */
     --radius-6: 6px;
     --radius-8: 8px;
     --radius-16: 16px;
     --radius-32: 48px;
     --radius-circle: 50%;
-
 }
 
 html {
@@ -102,27 +111,30 @@ html {
     font-style: normal;
   }
   
-  button {
+body {
+    margin: 0;
+    padding: 0;
+}
+
+button {
     background: none;
     border: none;
     padding: 0;
     font: inherit;
     color: inherit;
-  }
+}
 
 .navBar {
     display: none;
 }
 
 .header {
-    display: flex;
     position: fixed;
-    flex-direction: row;
     top: 0;
-    left:0;
-    right:0;
+    left: 0;
+    right: 0;
     height: 80px;
-    width: 100vw;
+    width: 100%;
     background: var(--col-blue1-100);
     border-bottom: 0.3vh solid var(--col-blue2-075);
     z-index: 1;
@@ -145,17 +157,17 @@ html {
 
 /* Main */
 main {
-    position: absolute;
-    top: 80px;
-    left: 0;
-    right: 0;
-    background: var(--col-gradient-main);
+    padding-top: 80px; /* Platz für den Header */
+    background: var(--col-gradient-content5);
     z-index: 0;
-    overflow-x: hidden;
 }
 
 .aboutMe {
     padding-top: 50px;
+}
+
+.aboutMe-subtitle {
+    color: var(--col-blue4-100);
 }
 
 .aboutMe-content {
@@ -164,7 +176,8 @@ main {
 }
 
 .aboutMe-content h1 {
-    color: white;
+    color: var(--col-blue4-100);
+    font-size: var(--fontSize-4);
 }
 .aboutMe-content span {
     background: var(--col-gradient-content4);
@@ -193,7 +206,7 @@ main {
     width: 90vw;
     height: 350px;
     background: var(--col-gradient-content2);
-    border: 0.3vh solid var(--col-blue1-100);
+    border: 0.1vh solid var(--col-blue4-050);
     border-radius: var(--radius-8);
 }
 
@@ -203,7 +216,7 @@ main {
 }
 
 .topics-title h2 {
-    color: var(--col-orange2-100);
+    color: var(--col-blue4-100);
 }
 
 .topics-text {
@@ -219,21 +232,52 @@ main {
 }
 
 .slider-item {
-    display: flex;
     justify-content: center;
     list-style-type: none;
     width: 90vw;
-    height: 210px;
+    flex: 1;
+}
+
+.slider-item a {
+    text-decoration: none;
+    color: var(--col-orange2-075);
 }
 
 .slider-card {
-    display: flex;
     flex-direction: column;
 }
 
 .slider-banner {
     object-fit: cover;
+    width: 90%;
+    max-width: 400px;
     height: 100%;
+    min-height: 165px;
+    max-height: 225px;
+    margin: 0 5%;
+    opacity: 75%;
+    border-radius: var(--radius-6);
+}
+
+.slider-content {
+    position: relative;
+    margin-left: calc(5% + 10px);
+    top: -60px;
+}
+
+.slider-title {
+    font-size: var(--fontSize-2);
+    padding: 0;
+    text-shadow: 1px 1px 2px var(--col-blue1-100);
+
+}
+
+.slider-subtitle {
+    font-size: var(--fontSize-10);
+    color: var(--col-blue4-100);
+    padding: 0;
+    text-shadow: 1px 1px 2px var(--col-blue1-100);
+    line-height: 0pt;
 }
 
 .btns-topic {
