@@ -93,7 +93,7 @@ header ::-webkit-scrollbar {
     --col-gradient-content1: linear-gradient(to left top, #2f484c, #2a4044, #25383c, #203034, #1b292c);
     --col-gradient-content2: linear-gradient(to left top, #0f3035, #132e33, #162c31, #192b2e, #1b292c);
     --col-gradient-content3: linear-gradient(to left top, #0f30357b, #132e337a, #162c3181, #192b2e, #1b292c);
-    --col-gradient-content4: linear-gradient(to left top, #e5ded1, #ddd5c4, #d6cbb7, #cec2ab, #c6b99e);
+    --col-gradient-content4: linear-gradient(to bottom, #e5ded1, #ddd5c4, #d6cbb7, #ad9466, #665636);
     --col-gradient-content5: linear-gradient(to bottom, #1b292c, #1c2b2f, #1e2e31, #1f3034, #203337, #21353a, #23383c, #243a3f, #263d42, #284045, #2b4349, #2d464c);
    
     /* border radius */
@@ -170,16 +170,24 @@ main {
     color: var(--col-blue4-100);
 }
 
-.aboutMe-content {
-    padding: 20px 20px 0px 20px;
-    color: var(--col-blue3-100);
+.aboutMe-subtitle span {
+    color: var(--col-blue4-100);
+    font-style:italic;
+    font-weight: var(--font-weight-Bold);
 }
 
-.aboutMe-content h1 {
+.aboutMe-content {
+    padding: 20px 5% 0px 5%;
+    color: var(--col-blue3-100);
+    text-align: justify;
+    hyphens: auto;
+}
+
+.headline {
     color: var(--col-blue4-100);
     font-size: var(--fontSize-4);
 }
-.aboutMe-content span {
+.headline span {
     background: var(--col-gradient-content4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -211,7 +219,7 @@ main {
 }
 
 .topics-title {
-    padding: 0px 5%;
+    padding: 0px 15px;
     color: var(--col-blue3-100);
 }
 
@@ -249,19 +257,19 @@ main {
 
 .slider-banner {
     object-fit: cover;
-    width: 90%;
+    width: calc(100% - 30px);
     max-width: 400px;
     height: 100%;
     min-height: 165px;
     max-height: 225px;
-    margin: 0 5%;
+    margin: 0 15px;
     opacity: 75%;
     border-radius: var(--radius-6);
 }
 
 .slider-content {
     position: relative;
-    margin-left: calc(5% + 10px);
+    margin-left: calc(15px + 10px);
     top: -60px;
 }
 
@@ -282,7 +290,7 @@ main {
 
 .btns-topic {
     display: flex;
-    left: 5%;
+    left: 15px;
     position: relative;
     background: transparent;
     gap: 8px;
@@ -292,6 +300,57 @@ main {
     display: flex;
     align-items: center;
     width: 20px;
-
   }
 
+.travel-reports {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 20px 5% 0 5% ;
+}
+
+.reports-headline {
+
+}
+
+.travel-reports-container {
+    padding: 5px 0 0 0;
+    list-style-type: none;
+    width: 90vw;
+    max-width: 400px;
+}
+
+.report-item {
+    border-radius: var(--radius-8);
+    background: var(--col-blue2-100);
+}
+
+.travel-banner {
+    margin: 10px;
+    width: calc(100% - 10px);
+    height: 150px;
+    border-radius: var(--radius-8);
+}
+
+.travel-tags ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+}
+
+.travel-tags li {
+    float: left;
+}
+
+.travel-tags li:last-child {
+    float: right;
+}
+.content-tag a {
+    text-decoration: none;
+    padding: 0 10px 0 0px;
+}
+
+.reading-time {
+    padding-right: 10px;
+}
