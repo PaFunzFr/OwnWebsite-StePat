@@ -157,9 +157,14 @@ button {
 
 /* Main */
 main {
+    display: flex;
+    flex-direction: column;
     padding-top: 80px; /* Platz für den Header */
     background: var(--col-gradient-content5);
     z-index: 0;
+    justify-content: center;
+    align-items: center;
+    overflow: hidden;
 }
 
 .aboutMe {
@@ -209,13 +214,19 @@ main {
 .topics {
     display: flex;
     flex-direction: column;
-    margin: auto;
+    margin: 0;
     position: relative;
     width: 90vw;
     height: 350px;
     background: var(--col-gradient-content2);
     border: 0.1vh solid var(--col-blue4-050);
     border-radius: var(--radius-8);
+    max-width: 1275px;
+}
+
+.topics ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .topics-title {
@@ -233,17 +244,21 @@ main {
 
 .topic-slider {
     display: flex;
-    margin: auto;
-    flex-direction: column;
-    padding: 0;
-    margin: 20px 0px;
+    flex-direction: row;
+    top: 20px;
+    overflow-x: scroll;
+    overflow-y: hidden;
+    scroll-snap-type: x mandatory;
+    flex-wrap: nowrap;
 }
 
 .slider-item {
+    display: flex;
+    scroll-snap-align: center;
     justify-content: center;
     list-style-type: none;
-    width: 90vw;
-    flex: 1;
+    flex: 1 0 100%;
+    margin: 0 15px;
 }
 
 .slider-item a {
@@ -253,19 +268,58 @@ main {
 
 .slider-card {
     flex-direction: column;
+    width: 100%;
 }
 
 .slider-banner {
+    align-items: center;
     object-fit: cover;
-    width: calc(100% - 30px);
-    max-width: 400px;
+    width: 100%;
     height: 100%;
     min-height: 165px;
     max-height: 225px;
-    margin: 0 15px;
     opacity: 75%;
     border-radius: var(--radius-6);
 }
+
+@media screen and (min-width: 600px) {
+    .topic-slider {
+      display: flex;
+      flex-direction: row;
+      justify-content: space-between;
+      overflow-x: scroll;
+      overflow-y: hidden;
+      flex-wrap: nowrap;
+      scroll-snap-type: none;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+  
+    .slider-item {
+      flex: 0 0 300px; /* 100% Breite abzüglich 10px Abstand */
+      margin-right: 10px; /* Abstand zwischen den Einträgen */
+      margin-left: 0;
+      padding: 0;
+    }
+  
+    .slider-item:last-child {
+      margin-right: 0px; /* Kein Abstand am Ende */
+      padding: 0;
+    }
+  
+    .slider-banner {
+      align-items: start;
+    }
+  
+    .slider-item a {
+      text-decoration: none;
+      color: var(--col-orange2-075);
+    }
+  
+    .slider-card {
+      flex-direction: column;
+    }
+  }
 
 .slider-content {
     position: relative;
@@ -277,7 +331,6 @@ main {
     font-size: var(--fontSize-2);
     padding: 0;
     text-shadow: 1px 1px 2px var(--col-blue1-100);
-
 }
 
 .slider-subtitle {
@@ -309,10 +362,17 @@ main {
     margin: 20px 5% 0 5% ;
 }
 
-.reports-headline {
-
+.reports-headline h2 {
+    background: var(--col-gradient-content4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+.reports-headline p {
+    color: var(--col-blue3-100);
+    line-height: 0;
+}
 .travel-reports-container {
     padding: 5px 0 0 0;
     list-style-type: none;
