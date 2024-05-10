@@ -1,44 +1,22 @@
-/* Scroll back to 0 when refreshing */
-/*----------------------------------------------------------------*/
-window.addEventListener('beforeunload', function() {
-    window.scrollTo(0, 0);
-});
+const buttonNext = document.querySelector('.btn-nxt');
+const buttonPrevious = document.querySelector('.btn-pre');
+const slider = document.querySelector('.topic-slider');
+const sliderItems = document.querySelectorAll('.slider-item');
 
-window.addEventListener('load', function() {
-    var fadeIn = document.querySelectorAll('.fadeIn');
-    fadeIn.forEach(function (fadeIn) {
-        fadeIn.classList.add('loaded');
-    });
-});
+buttonNext.addEventListener('click', () => {
+    const sliderVisibleWidth = slider.clientWidth;
+    slider.scrollBy({ left: sliderVisibleWidth, behavior: 'smooth' });
 
-/* HOVER ICONS
-/*----------------------------------------------------------------*/
-function changeImage(imgId,newSrc) {
-    document.getElementById(imgId).src = newSrc;
-    document.getElementById(imgId).src = newSrc;
-    document.getElementById(imgId).src = newSrc;
-};
-
-/* TOGGLE MENU */
-/*----------------------------------------------------------------*/
-let isMenuOpen = false;
-let menuContainer = document.querySelector('.menuContainer');
-let menuButton = document.querySelector('.buttonMenuContainer');
-
-function toggleMenu() {
-
-    if (!isMenuOpen) {
-        // Open Menu
-        menuContainer.style.left = 0;
-        isMenuOpen = true;
-
-    } else {
-        // Close Menu
-        menuContainer.style.left = '-100%';
-        isMenuOpen = false;
+    if (slider.scrollLeft + sliderVisibleWidth >= slider.scrollWidth - 10) {
+        slider.scrollTo({ left: 0, behavior: 'smooth' });
     }
-}
+});
 
-menuButton.addEventListener('click', toggleMenu);
+buttonPrevious.addEventListener('click', () => {
+    const sliderVisibleWidth = slider.clientWidth;
+    slider.scrollBy({ left: -sliderVisibleWidth, behavior: 'smooth' });
 
-
+    if (slider.scrollLeft === 0) {
+        slider.scrollTo({ left: slider.scrollWidth - sliderVisibleWidth, behavior: 'smooth' });
+    }
+});
