@@ -159,7 +159,7 @@ button {
 main {
     display: flex;
     flex-direction: column;
-    padding-top: 80px; /* Platz für den Header */
+    padding-top: 80px;
     background: var(--col-gradient-content5);
     z-index: 0;
     justify-content: center;
@@ -168,7 +168,9 @@ main {
 }
 
 .aboutMe {
+    width: 90vw;
     padding-top: 50px;
+    max-width: 1275px;
 }
 
 .aboutMe-subtitle {
@@ -182,7 +184,7 @@ main {
 }
 
 .aboutMe-content {
-    padding: 20px 5% 0px 5%;
+    padding: 20px 0 0px 0;
     color: var(--col-blue3-100);
     text-align: justify;
     hyphens: auto;
@@ -218,7 +220,7 @@ main {
     position: relative;
     width: 90vw;
     height: 350px;
-    background: var(--col-gradient-content2);
+    background: var(--col-blue1-100);
     border: 0.1vh solid var(--col-blue4-050);
     border-radius: var(--radius-8);
     max-width: 1275px;
@@ -242,14 +244,42 @@ main {
     margin-top: -10px;
 }
 
+.topics::before,
+.topics::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    width: 15px;
+    height: 100%;
+    background: var(--col-blue1-100);
+    border-radius: var(--radius-8);
+    z-index: 2;
+}
+
+.topics::before {
+    left: 0;
+    -webkit-mask-image: linear-gradient(to right, black 80%, transparent);
+    mask-image: linear-gradient(to right, black 80%, transparent);
+}
+
+.topics::after {
+    right: 0;
+    -webkit-mask-image: linear-gradient(to left, black 80%, transparent);
+    mask-image: linear-gradient(to left, black 80%, transparent);
+}
+
 .topic-slider {
     display: flex;
     flex-direction: row;
-    top: 20px;
     overflow-x: scroll;
     overflow-y: hidden;
     scroll-snap-type: x mandatory;
     flex-wrap: nowrap;
+    justify-content: space-between;
+    z-index: 1;
+    padding-left: 15px;
+    padding-right: 15px;
+    margin-bottom: 15px;
 }
 
 .slider-item {
@@ -258,7 +288,15 @@ main {
     justify-content: center;
     list-style-type: none;
     flex: 1 0 100%;
-    margin: 0 15px;
+    margin-right: 15px;
+}
+
+.slider-item:last-child {
+    margin-right: 0;
+}
+
+.slider-item:only-child {
+    margin-right: 0;
 }
 
 .slider-item a {
@@ -277,7 +315,7 @@ main {
     width: 100%;
     height: 100%;
     min-height: 165px;
-    max-height: 225px;
+    max-height: 260px;
     opacity: 75%;
     border-radius: var(--radius-6);
 }
@@ -290,26 +328,22 @@ main {
       overflow-x: scroll;
       overflow-y: hidden;
       flex-wrap: nowrap;
-      scroll-snap-type: none;
+      scroll-snap-type: x mandatory;
       padding-left: 15px;
       padding-right: 15px;
     }
   
     .slider-item {
-      flex: 0 0 300px; /* 100% Breite abzüglich 10px Abstand */
-      margin-right: 10px; /* Abstand zwischen den Einträgen */
+      flex: 0 0 300px; 
+      margin-right: 10px; 
       margin-left: 0;
       padding: 0;
+      scroll-margin: 15px;
     }
-  
+
     .slider-item:last-child {
-      margin-right: 0px; /* Kein Abstand am Ende */
-      padding: 0;
-    }
-  
-    .slider-banner {
-      align-items: start;
-    }
+        margin-right: 0px; 
+      }
   
     .slider-item a {
       text-decoration: none;
