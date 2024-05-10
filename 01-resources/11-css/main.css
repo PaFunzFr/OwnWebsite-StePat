@@ -37,7 +37,6 @@ header ::-webkit-scrollbar {
     --fontSize-9: 0.9rem;
     --fontSize-10: 0.8rem;
 
-
     /* font weight */
     --font-weight-norm: 500;
     --font-weight-sBold: 600;
@@ -137,7 +136,7 @@ button {
     width: 100%;
     background: var(--col-blue1-100);
     border-bottom: 0.3vh solid var(--col-blue2-075);
-    z-index: 1;
+    z-index: 10;
 }
 
 .logoMain {
@@ -156,6 +155,7 @@ button {
 }
 
 /* Main */
+
 main {
     display: flex;
     flex-direction: column;
@@ -192,7 +192,6 @@ main {
 
 .headline {
     color: var(--col-blue4-100);
-    font-size: var(--fontSize-4);
 }
 .headline span {
     background: var(--col-gradient-content4);
@@ -447,4 +446,44 @@ main {
 
 .reading-time {
     padding-right: 10px;
+}
+
+/* Responsiveness */
+
+@media screen and (min-width: 1000px) {
+
+    .headline {
+        font-size: var(--fontSize-1);
+    }
+
+    h2 {
+        font-size: var(--fontSize-3);
+    }
+
+    p {
+        font-size: var(--fontSize-6);
+    }
+
+    .aboutMe-subtitle {
+        font-size: var(--fontSize-3);
+    }
+}
+
+@media screen and (min-width: 600px) and (max-width: 999px) {
+
+    .headline {
+        font-size: var(--fontSize-2);
+    }
+
+    h2 {
+        font-size: var(--fontSize-4);
+    }
+
+    p {
+        font-size: var(--fontSize-7);
+    }
+
+    .aboutMe-subtitle {
+        font-size: var(--fontSize-7);
+    }
 }
