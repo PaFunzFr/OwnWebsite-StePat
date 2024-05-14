@@ -184,7 +184,6 @@ main {
 .aboutMe-content {
     padding: 20px 0 0px 0;
     color: var(--col-blue4-075);
-    text-align: justify;
     hyphens: auto;
 }
 
@@ -196,6 +195,10 @@ main {
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+}
+
+.aboutMe-text {
+    text-align: justify;
 }
 
 .aboutMe img {
@@ -230,7 +233,7 @@ main {
 
 .topics-title {
     padding: 0px 15px;
-    color: var(--col-blue3-100);
+    color: var(--col-blue4-075);
 }
 
 .topics-title h2 {
@@ -360,7 +363,51 @@ main {
     display: flex;
     align-items: center;
     width: 20px;
-  }
+}
+
+.gravelBike {
+    display: flex;
+    position: relative;
+    flex-direction: column;
+    margin: 20px 5% 0 5% ;
+    width: 90vw;
+    max-width: 1275px;
+    padding-top: 20px;
+}
+
+.aboutGravelBiking {
+    display: grid;
+    grid-template-columns: 0.6fr 1fr;
+    align-items: center;
+    margin: 0;
+    max-width: 90vw;
+    padding: 15px 0;
+    gap: 15px;
+    background: var(--col-blue1-025);
+    border-radius: var(--radius-16);
+    border: 0.1vh solid var(--col-blue4-025);
+}
+
+.gravelText {
+    display: flex;
+    align-items: center;
+    color: var(--col-blue4-100);
+    background-image: linear-gradient(to right, var(--col-blue1-100), transparent);
+    padding: 15px 35px;
+    margin: 0;
+    height: 100%;
+    z-index: 2;
+    border-radius: var(--radius-16) 0 0 var(--radius-16);
+}
+
+.aboutGravelBiking img {
+    position: relative;
+    object-fit: contain;
+    transform: translateX(-55px) scale(1.4) translateY(-5px);
+    width: 100%;
+    max-width: 100%;
+    z-index: 1;
+}
 
 .travel-reports,
 .photos-reports {
@@ -372,7 +419,8 @@ main {
 }
 
 .reports-headline h2,
-.photos-headline h2 {
+.photos-headline h2,
+.gravel-headline h2 {
     background: var(--col-gradient-content4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -381,7 +429,8 @@ main {
 }
 
 .reports-headline p,
-.photos-headline p {
+.photos-headline p,
+.gravel-headline p {
     color: var(--col-blue4-075);
     line-height: 0;
     margin-bottom: 25px;
@@ -404,6 +453,7 @@ main {
     border-radius: var(--radius-8);
     background: var(--col-blue1-100);
     min-width: 20px;
+    border: 0.1vh solid var(--col-blue4-025);
 }
 
 .report-item:hover,
@@ -437,7 +487,7 @@ main {
     margin: 0;
     padding: 0;
     overflow: hidden;
-    color: white;
+    color: var(--col-blue4-075);
 }
 
 .travel-tags li,
@@ -452,7 +502,7 @@ main {
 .content-tag a {
     text-decoration: none;
     padding: 0 10px 0 0px;
-    color: white;
+    color: var(--col-blue4-075);
 }
 
 .reading-time {
@@ -474,7 +524,8 @@ main {
     margin-right: 20px;
     font-size: var(--fontSize-4);
     padding: 0;
-    color: grey;
+    color: var(--col-orange2-100);
+    transition: color 0.4s ease;
 }
 
 .report-subtitle {
@@ -483,6 +534,7 @@ main {
     margin-left: 10px;
     margin-right: 10px;
     font-size: var(--fontSize-7);
+    color: var(--col-blue4-075);
 }
 
 
@@ -529,11 +581,11 @@ main {
 @media screen and (max-width: 599px) {
 
     .headline {
-        font-size: var(--fontSize-1);
+        font-size: var(--fontSize-2);
     }
 
     h2 {
-        font-size: var(--fontSize-1);
+        font-size: var(--fontSize-2);
     }
 
     p {
@@ -541,7 +593,7 @@ main {
     }
 
     .aboutMe-subtitle {
-        font-size: var(--fontSize-3);
+        font-size: var(--fontSize-4);
     }
 }
 
@@ -554,7 +606,7 @@ main {
     .aboutMe img {
         position: absolute;
         width: 600px;
-        top: 210px;
+        top: calc(230px + 1%);
         left: 50%;
     }
 
@@ -567,10 +619,19 @@ main {
         margin-top: 60px;
         margin-left: 20px;
     }
+    .aboutGravelBiking img {
+        transform: translateX(-55px) scale(1.3) translateY(-36px);
+    }
+
+    .gravelBike {
+        padding-top: 50px;
+    }
 }
 
 @media screen and (max-width: 1400px) {
-    .aboutMe, .topics {
+    .aboutMe,
+    .topics,
+    .gravelBike {
         max-width: 949px;
     }
 
@@ -588,10 +649,16 @@ main {
     .photos-banner {
         height: 250px;
     }
+
+    .aboutGravelBiking img {
+        transform: translateX(-65px) scale(1.4) translateY(-35px);
+    }
 }
 
 @media screen and (max-width: 1056px) {
-    .aboutMe, .topics  {
+    .aboutMe,
+    .topics,
+    .gravelBike {
         max-width: 639px;
     }
 
@@ -613,6 +680,34 @@ main {
     
     .photos-banner {
         height: 200px;
+    }
+
+    .aboutGravelBiking {
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr 1fr;
+        margin-top: 30px;
+        height: 536px;
+    }
+    
+    .gravelText {
+        order: 2;
+        padding: 15px 35px;
+        margin: 0;
+        height: 100%;
+        z-index: 2;
+        border-radius: 0 0 var(--radius-16) var(--radius-16);
+        background-image: linear-gradient(to top, var(--col-blue1-100), transparent);
+    }
+    
+    .aboutGravelBiking img {
+        order: 1;
+        position: relative;
+        object-fit: contain;
+        transform: translateX(0) scale(1.2) translateY(-10px);
+        width: 90%;
+        max-width: 90%;
+        z-index: 1;
+        margin: 0 5%;
     }
 }
 
