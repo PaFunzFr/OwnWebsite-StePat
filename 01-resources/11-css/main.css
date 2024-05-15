@@ -25,6 +25,8 @@ header ::-webkit-scrollbar {
 :root {
 
     /* font sizes */
+    --fontSize-00: 5.0rem;
+    --fontSize-0: 4.5rem;
     --fontSize-1: 2.9rem;
     --fontSize-2: 2.0rem;
     --fontSize-3: 1.8rem;
@@ -65,7 +67,17 @@ header ::-webkit-scrollbar {
     --col-orange2-075: hsla(37, 100%, 83%, 0.75);
     --col-orange2-050: hsla(37, 100%, 83%, 0.5);
     --col-orange2-025: hsla(37, 100%, 83%, 0.25);
+/*
+    --col-orange1-100: hsla(37, 91%, 48%, 1);
+    --col-orange1-075: hsla(37, 91%, 48%, 0.75);
+    --col-orange1-050: hsla(37, 91%, 48%, 0.5);
+    --col-orange1-025: hsla(37, 91%, 48%, 0.25);
 
+    --col-orange2-100: hsla(37, 100%, 56%, 1);
+    --col-orange2-075: hsla(37, 100%, 56%, 0.975);
+    --col-orange2-050: hsla(37, 100%, 56%, 0.5);
+    --col-orange2-025: hsla(37, 100%, 56%,, 0.25);
+*/
     --col-blue1-100: hsla(190, 38%, 10%, 1);
     --col-blue1-075: hsla(190, 38%, 10%, 0.75);
     --col-blue1-050: hsla(190, 38%, 10%, 0.5);
@@ -86,15 +98,17 @@ header ::-webkit-scrollbar {
     --col-blue4-050: hsla(188, 59%, 85%, 0.5);
     --col-blue4-025: hsla(188, 59%, 85%, 0.25);
 
-    
     --col-gradient-main: linear-gradient(to top, #535e40, #475b43, #3c5847, #35544a, #304f4c, #2d4a4a, #2b4547, #2a4044, #263a3e, #223438, #1f2f32, #1b292c);
     --col-gradient-content1: linear-gradient(to left top, #2f484c, #2a4044, #25383c, #203034, #1b292c);
     --col-gradient-content2: linear-gradient(to left top, #0f3035, #132e33, #162c31, #192b2e, #1b292c);
     --col-gradient-content3: linear-gradient(to left top, #0f30357b, #132e337a, #162c3181, #192b2e, #1b292c);
     --col-gradient-content4: linear-gradient(to bottom, #e5ded1, #ddd5c4, #d6cbb7, #ad9466, #665636);
     --col-gradient-content5: linear-gradient(to bottom, #1b292c, #1c2b2f, #1e2e31, #1f3034, #203337, #21353a, #23383c, #243a3f, #263d42, #284045, #2b4349, #2d464c);
-   
+    --col-gradient-content6: linear-gradient(to right bottom, #0d1b1e, #0d1c20, #0d1e21, #0c1f23, #0c2125, #0f2429, #11282d, #142b31, #1a3238, #20383e, #273f45, #2d464c);
+    --col-gradient-content7: linear-gradient(to right bottom, #0d1b1e, #132326, #192b2f, #1f3337, #253b40, #214245, #1d4849, #1b4f4b, #1d5440, #30582f, #48591a, #655605);
+  
     /* border radius */
+    --radius-4: 4px;
     --radius-6: 6px;
     --radius-8: 8px;
     --radius-16: 16px;
@@ -107,8 +121,8 @@ html {
     scroll-behavior: smooth;
     font-family: 'Lato';
     font-style: normal;
-  }
-  
+}
+
 body {
     margin: 0;
     padding: 0;
@@ -134,7 +148,7 @@ button {
     height: 80px;
     width: 100%;
     background: var(--col-blue1-100);
-    border-bottom: 0.3vh solid var(--col-blue2-075);
+    border-bottom: 0.5pt solid var(--col-blue4-025);
     z-index: 10;
 }
 
@@ -153,48 +167,114 @@ button {
     right: 10px;
 }
 
-/* Main */
+/* MAIN */
 
 main {
     display: flex;
     flex-direction: column;
     padding-top: 80px;
-    background: var(--col-gradient-content5);
+    background: var(--col-gradient-content7);
+    background-size: 400% 400%;
     z-index: 0;
     justify-content: center;
     align-items: center;
     overflow: hidden;
+    animation: gradientBackground 14s ease infinite;
 }
 
+@keyframes gradientBackground {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+/* MAIN PIC */
+
+.startBackground {
+    position: absolute;
+    left: 0;
+    top: 80px;
+    width: 100vw;
+}
+.mainPic {
+    opacity: 1;
+    width: 100%;
+    height: 555px;
+    background-size: cover;
+    background-color: white;
+    background-repeat: no-repeat;
+    z-index: 0;
+    -webkit-mask-image: linear-gradient(rgba(0,0,0,0.5), transparent);
+    mask-image: linear-gradient(rgba(0,0,0,0.5), transparent);
+    animation: picSlider 15s ease infinite;
+}
+
+@keyframes picSlider {
+    0%, 100% {
+        background-image: url(/01-resources/13-images/IMG_5105.jpg);
+        opacity: 0.7;
+    }
+    50% {
+        background-image: url(/01-resources/13-images/2.jpg);
+        opacity: 0.7;
+    }
+}
+
+/* ABOUT */
 .aboutMe {
     width: 90vw;
     padding-top: 50px;
     max-width: 1275px;
+    z-index: 1;
 }
 
 .aboutMe-subtitle {
-    color: var(--col-orange2-100);
+    color: var(--col-orange2-075);
 }
 
 .aboutMe-subtitle span {
     font-style:italic;
     font-weight: var(--font-weight-Bold);
+    color: var(--col-orange2-100);
 }
 
 .aboutMe-content {
     padding: 20px 0 0px 0;
-    color: var(--col-blue4-075);
+    color: var(--col-orange2-075);
     hyphens: auto;
 }
 
 .headline {
-    color: var(--col-blue4-100);
+    color: var(--col-blue1-050);
+    -webkit-text-stroke: 1px var(--col-blue4-100);
 }
+
 .headline span {
     background: var(--col-gradient-content4);
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
+    background-size: 200% 200%;
+    animation: changeColor 5s ease infinite;
+    
+}
+
+@keyframes changeColor {
+    0% {
+        background-position: 0% 70%;
+    }
+    50% {
+        background-position: 100% 100%;
+    }
+    100% {
+        background-position: 0% 70%;
+    }
 }
 
 .aboutMe-text {
@@ -224,6 +304,7 @@ main {
     border: 0.1vh solid var(--col-blue4-025);
     border-radius: var(--radius-16);
     max-width: 1275px;
+    z-index: 1;
 }
 
 .topics ::-webkit-scrollbar {
@@ -365,6 +446,71 @@ main {
     width: 20px;
 }
 
+.reports-search {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 0 0 10px 0;
+    margin: 0;
+}
+
+.searchContainer {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+    background: var(--col-orange1-025);
+    border-radius: var(--radius-6);
+    border: 0.1vh solid var(--col-orange2-025);
+    padding: 0px 10px;
+    height: 40px;
+    max-width: 260px;
+}
+
+.searchContainer p {
+    color: var(--col-blue4-100);
+    font-weight: bold;
+}
+
+.searchContainer input {
+    width: 200px;
+    border-radius: var(--radius-4);
+    border: 0vh;
+    text-indent: 4px;
+}
+
+.taglist {
+    display: flex;
+    justify-content: space-between;
+    list-style-type: none;
+    height: 40px;
+    max-width: 500px;
+    margin-right: 0;
+    padding: 0;
+    justify-self: end;
+    gap: 10px;
+}
+
+.taglist li {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 40px;
+    min-width: 80px;
+    padding: 0 10px;
+    background: var(--col-gradient-content3);
+    border-radius: var(--radius-16);
+    border: 0.1vh solid var(--col-blue4-025);
+    color: var(--col-orange2-075);
+    font-weight: bold;
+}
+
+.taglist li:hover {
+    cursor: pointer;
+}
+.reports-search:last-child {
+    margin-right: 0;
+}
+
 .gravelBike {
     display: flex;
     position: relative;
@@ -435,10 +581,17 @@ main {
     line-height: 0;
     margin-bottom: 25px;
 }
-.reports-grid,
-.photos-grid {
+.reports-grid {
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: auto;
+    gap: 15px;
+    width: 1275px;
+}
+
+.photos-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     gap: 15px;
     width: 1275px;
@@ -451,7 +604,7 @@ main {
     justify-content: space-between;
     position: relative;
     border-radius: var(--radius-8);
-    background: var(--col-blue1-100);
+    background-image: linear-gradient(to top, var(--col-blue1-100), transparent);
     min-width: 20px;
     border: 0.1vh solid var(--col-blue4-025);
 }
@@ -477,7 +630,7 @@ main {
 .photos-banner {
     margin: 10px;
     width: calc(100% - 10px);
-    height: 200px;
+    height: 400px;
     border-radius: var(--radius-8);
 }
 
@@ -543,7 +696,7 @@ main {
 @media screen and (min-width: 1000px) {
 
     .headline {
-        font-size: var(--fontSize-1);
+        font-size: var(--fontSize-00);
     }
 
     h2 {
@@ -562,7 +715,7 @@ main {
 @media screen and (min-width: 600px) and (max-width: 999px) {
 
     .headline {
-        font-size: var(--fontSize-1);
+        font-size: var(--fontSize-00);
     }
 
     h2 {
@@ -581,7 +734,7 @@ main {
 @media screen and (max-width: 599px) {
 
     .headline {
-        font-size: var(--fontSize-2);
+        font-size: var(--fontSize-0);
     }
 
     h2 {
@@ -605,20 +758,28 @@ main {
 
     .aboutMe img {
         position: absolute;
-        width: 600px;
-        top: calc(230px + 1%);
-        left: 50%;
+        top: calc(180px + 1%);
+        left: calc(50vw - 100px);
+        max-width: 750px;
+        z-index: 0;
     }
 
     .aboutMe-content,
     .aboutMe-subtitle,
-    .headline,
     .aboutMe-text {
         width: 500px;
         margin-bottom: 50px;
         margin-top: 60px;
         margin-left: 20px;
     }
+
+    .headline {
+        width: 700px;
+        margin-bottom: 50px;
+        margin-top: 60px;
+        margin-left: 20px;
+    }
+
     .aboutGravelBiking img {
         transform: translateX(-55px) scale(1.3) translateY(-36px);
     }
@@ -633,6 +794,12 @@ main {
     .topics,
     .gravelBike {
         max-width: 949px;
+    }
+
+    .aboutMe img {
+        position: relative;
+        max-width: 600px;
+        transform: translateY(0px);
     }
 
     .reports-grid,
@@ -666,7 +833,13 @@ main {
         max-width: 450px;
     }
 
-    .reports-grid,
+    .reports-grid {
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: auto;
+        max-width: 639px;
+        width: 90vw;
+    }
+
     .photos-grid {
         grid-template-columns: 1fr 1fr;
         grid-template-rows: auto;
@@ -724,7 +897,7 @@ main {
     }
     
     .photos-banner {
-        height: 230px;
+        height: 280px;
     }
 
     .report-item:hover,
