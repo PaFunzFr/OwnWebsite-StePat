@@ -37,3 +37,20 @@ hoveredItems.forEach(item => {
         highlightedTexts.style.fontWeight = '';
     });
 });
+
+
+document.getElementById('searchInput').addEventListener('input', function (event) {
+    const searchTerm = event.target.value.toLowerCase();
+    const listItems = document.querySelectorAll('.report-item');
+
+    listItems.forEach(function (entry) {
+        const itemText = entry.textContent.toLowerCase();
+
+        if (itemText.includes(searchTerm)) {
+            entry.style.display = 'list-item';
+            entry.parentNode.style.listStyleType = 'none';
+        } else {
+            entry.style.display = 'none';
+        }
+    });
+});
