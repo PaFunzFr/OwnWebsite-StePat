@@ -1,3 +1,4 @@
+// BUTTONS SLIDER
 const buttonNext = document.querySelector('.btn-nxt');
 const buttonPrevious = document.querySelector('.btn-pre');
 const slider = document.querySelector('.topic-slider');
@@ -22,6 +23,7 @@ buttonPrevious.addEventListener('click', () => {
 });
 
 
+// HOVER EFFECT SLIDER
 const hoveredItems = document.querySelectorAll('.report-item, .photos-item');
 
 hoveredItems.forEach(item => {
@@ -39,6 +41,8 @@ hoveredItems.forEach(item => {
 });
 
 
+// TRAVEL REPORT SEARCH INPUT
+
 document.getElementById('searchInput').addEventListener('input', function (event) {
     const searchTerm = event.target.value.toLowerCase();
     const listItems = document.querySelectorAll('.report-item');
@@ -54,3 +58,84 @@ document.getElementById('searchInput').addEventListener('input', function (event
         }
     });
 });
+
+
+// TRAVEL REPORT FILTER BY YEAR AND TAG
+
+document.addEventListener("DOMContentLoaded", function() {
+    // DROPDOWN FILTER BY YEAR
+    var dropdownYearLinks = document.querySelectorAll('.dropdown-content li');
+    var dropdownYearButton = document.querySelector('.dropdown button');
+  
+    dropdownYearLinks.forEach(function(link) {
+      link.addEventListener('click', function(event) {
+        event.preventDefault(); // Verhindert das Standardverhalten des Links (keine URL)
+        
+        var year = link.textContent.trim(); // get text of link
+        dropdownYearButton.textContent = year; // change button text
+        toggleFilterByYear(year); // Filter by year
+        applyFilters();
+      });
+    });
+  
+    // TAG TOGGLE
+    var tagElements = document.querySelectorAll('.taglist li');
+  
+    tagElements.forEach(function(tagElement) {
+      tagElement.addEventListener('click', toggleFilterByTag);
+    });
+    
+    // Dropdown "- all -" selection
+    var dropdownAllOption = document.querySelector('.dropdown-content li:first-child');
+    dropdownAllOption.addEventListener('click', function(event) {
+      event.preventDefault();
+      dropdownYearButton.textContent = 'Year'; // Reset Dropdown-Text
+      resetFilterByYear(); 
+      applyFilters(); 
+    });
+});
+
+function toggleFilterByTag() {
+    var isActive = this.classList.toggle('active');
+    this.style.color = isActive ? 'hsla(190, 38%, 10%, 1)' : '';
+    this.style.background = isActive ? 'hsla(188, 59%, 85%, 0.5)' : '';
+    this.style.border = isActive ? '0.1vh solid hsla(190, 38%, 10%, 1)' : '';
+    applyFilters();
+}
+
+function applyFilters() {
+    var reportItems = document.querySelectorAll('.reports-grid .report-item');
+    var activeTags = document.querySelectorAll('.taglist li.active');
+    var activeTagNames = Array.from(activeTags).map(function(activeTag) {
+      return activeTag.textContent.trim();
+    });
+    var selectedYear = document.querySelector('.dropdown button').textContent.trim();
+    
+    reportItems.forEach(function(reportItem) {
+        var isActiveYear = selectedYear === 'Year' || reportItem.classList.contains('year' + selectedYear);
+        var isActiveTag = activeTagNames.length === 0 || Array.from(reportItem.querySelectorAll('.content-tag a')).some(function(tagLink) {
+            return activeTagNames.includes(tagLink.textContent.trim().substring(1));
+        });
+        var allActiveTagsPresent = activeTagNames.every(function(activeTagName) {
+            return Array.from(reportItem.querySelectorAll('.content-tag a')).some(function(tagLink) {
+                return activeTagName === tagLink.textContent.trim().substring(1);
+            });
+        });
+        reportItem.style.display = isActiveYear && isActiveTag && allActiveTagsPresent ? 'block' : 'none'; // Berücksichtigen sowohl des ausgewählten Jahres als auch der Tags
+    });
+}
+
+function toggleFilterByYear(year) {
+    var reportItems = document.querySelectorAll('.reports-grid .report-item');
+    reportItems.forEach(function(reportItem) {
+        var isActiveYear = year === 'all' || reportItem.classList.contains('year' + year);
+        reportItem.style.display = isActiveYear ? 'block' : 'none';
+    });
+}
+
+function resetFilterByYear() {
+    var reportItems = document.querySelectorAll('.reports-grid .report-item');
+    reportItems.forEach(function(reportItem) {
+        reportItem.style.display = 'block'; // show all repotItems
+    });
+}
