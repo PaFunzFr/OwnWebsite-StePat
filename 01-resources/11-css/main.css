@@ -96,6 +96,7 @@ header ::-webkit-scrollbar {
     --col-gradient-content5: linear-gradient(to bottom, #1b292c, #1c2b2f, #1e2e31, #1f3034, #203337, #21353a, #23383c, #243a3f, #263d42, #284045, #2b4349, #2d464c);
     --col-gradient-content6: linear-gradient(to right bottom, #0d1b1e, #0d1c20, #0d1e21, #0c1f23, #0c2125, #0f2429, #11282d, #142b31, #1a3238, #20383e, #273f45, #2d464c);
     --col-gradient-content7: linear-gradient(to right bottom, #0d1b1e, #132326, #192b2f, #1f3337, #253b40, #214245, #1d4849, #1b4f4b, #1d5440, #30582f, #48591a, #655605);
+    --col-gradient-content8: linear-gradient(to bottom, hsla(187, 38%, 25%, 1), hsla(190, 38%, 10%, 1) 80%);
   
     /* border radius */
     --radius-4: 4px;
@@ -126,9 +127,97 @@ button {
     color: inherit;
 }
 
+/* NAVIGATION BAR MAIN */
 .navBar {
-    display: none;
+    display: flex;
+    position: fixed;
+    right: 10px;
+    height: 80px;
+    align-items: center;
 }
+
+.navBar-top ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.navBar-top li {
+    margin: 0 10px;
+    list-style-type: none;
+    padding: 0;
+    float: right;
+    font-size: var(--fontSize-5);
+    font-weight: var(--font-weight-Bold);
+}
+
+.navBar-top li:last-child {
+    display:flex;
+    padding-left: 10px;
+    font-size: var(--fontSize-8);
+    align-items: center;
+}
+
+.navBar-top a {
+    background: var(--col-gradient-content4);
+    opacity: 0.9;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+.navBar-top a:hover {
+    background: var(--col-orange1-100);
+    opacity: 1;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+/* DROPDOWN BAR NAVIGATION */
+
+.buttonMenuContainer {
+    display: flex;
+    position: fixed;
+    z-index: 99;
+    padding: 0;
+    margin: 0;
+    right: 0px;
+    top: -135px;
+}
+
+.menuButton ul {
+    padding: 0;
+    margin: 0;
+    width: 120px;
+    border-radius: 0 0 0 var(--radius-16);
+}
+
+.menuButton ul li {
+    display: flex;
+    justify-content: center;
+    list-style-type: none;
+    border-top: var(--col-blue4-025) 1px solid;
+    background: var(--col-blue1-075);
+    padding: 10px;
+    margin: 0;
+}
+
+.menuButton ul li a {
+    background: var(--col-gradient-content4);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+.menuButton ul li:last-child {
+    border-radius: 0 0 0 var(--radius-16);
+}
+
+/* HEADER */
 
 .header {
     position: fixed;
@@ -139,22 +228,45 @@ button {
     width: 100%;
     background: var(--col-blue1-100);
     border-bottom: 0.5pt solid var(--col-blue4-025);
-    z-index: 10;
+    z-index: 100;
 }
 
 .logoMain {
     display: flex;
     position: absolute;
     margin-top: 12px;
-    left: 5px;
+    left: 10px;
     width: 180px;
 }
 
 .navButton {
-    display: flex;
+    display: none;
     position: absolute;
-    margin-top: 25px;
-    right: 10px;
+    right: 0px;
+    background: none;
+    height: 80px;
+    top: 0;
+    width: 120px;
+    justify-content: center;
+    align-items: center;
+    font-size: var(--fontSize-5);
+    font-weight: var(--font-weight-Bold);
+    background: var(--col-gradient-content4) 50%;
+    background-position: center top;
+    background-size: 100% 33%;
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
+}
+
+
+.navButton:hover {
+    background: var(--col-orange1-100);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    text-decoration: none;
 }
 
 /* MAIN */
@@ -244,6 +356,7 @@ main {
 .headline {
     color: var(--col-blue1-050);
     -webkit-text-stroke: 1px var(--col-blue4-100);
+    line-height: 40pt;
 }
 
 .headline span {
@@ -659,7 +772,6 @@ main {
 .photos-item {
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
     position: relative;
     border-radius: var(--radius-8);
     background-image: linear-gradient(to top, var(--col-blue1-100), transparent);
@@ -692,18 +804,23 @@ main {
     border-radius: var(--radius-8);
 }
 
+
 .travel-tags ul,
 .photos-tags ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+    margin-left: -10px;
     overflow: hidden;
     color: var(--col-blue4-075);
+    padding-left: 10px;
 }
 
 .travel-tags li,
 .photos-tags li {
     float: left;
+}
+
+.tag-indent {
+    text-indent: 10px;
 }
 
 .travel-tags li:last-child {
@@ -809,6 +926,37 @@ main {
     }
 }
 
+@media screen and (max-width: 400px) {
+
+    .headline {
+        font-size: var(--fontSize-1);
+    }
+
+    h2 {
+        font-size: var(--fontSize-3);
+    }
+
+    p {
+        font-size: var(--fontSize-7);
+    }
+
+    .aboutMe-subtitle {
+        font-size: var(--fontSize-5);
+    }
+
+    .headline {
+        line-height: 24pt;
+    }
+
+    .aboutMe {
+        padding-top: 30px;
+    }
+
+    .aboutMe-content {
+        line-height: var(--lineH-1);
+    }
+}
+
 /* LAYOUT */
 @media screen and (min-width: 1401px) {
     .btns {
@@ -883,6 +1031,7 @@ main {
 }
 
 @media screen and (max-width: 1056px) {
+
     .aboutMe,
     .topics,
     .gravelBike  {
@@ -960,6 +1109,17 @@ main {
         max-width: 90%;
         z-index: 1;
         margin: 0 5%;
+    }
+}
+
+@media screen and (max-width: 850px) {
+
+    .navBar {
+        display: none;
+    }
+
+    .navButton {
+        display: flex;
     }
 }
 
