@@ -1,4 +1,60 @@
+/*---------------*/
+// NAVIGATION BAR
+
+const getNavButton = document.querySelector('.navButton');
+const getMenuButtonList = document.querySelector('.buttonMenuContainer');
+const getDropDownContainer = document.querySelector('.menuButton');
+
+function isMouseLeavingHorizontally(event, element) {
+    const rect = element.getBoundingClientRect();
+    return event.clientX < rect.left || event.clientX > rect.right;
+}
+
+// HOVER EVENT Computer
+getNavButton.addEventListener('mouseover', () => {
+    if (!isTouchDevice()) { // is Computer?
+        getMenuButtonList.style.top = '80px';
+    }
+});
+
+getNavButton.addEventListener('mouseleave', (event) => {
+    if (!isTouchDevice() && isMouseLeavingHorizontally(event, getNavButton)) { // is Computer and mouse leacing in x?
+        getMenuButtonList.style.top = '';
+    }
+});
+
+getDropDownContainer.addEventListener('mouseleave', () => {
+    if (!isTouchDevice()) { // is Computer?
+        getMenuButtonList.style.top = '';
+    }
+});
+
+// CLICK Event Mobile
+let buttonActive = false;
+
+function toggleMenuButton() {
+    getNavButton.addEventListener('click', () => {
+        if (isTouchDevice()) {
+            if (buttonActive) {
+                getMenuButtonList.style.top = '';
+            } else {
+                getMenuButtonList.style.top = '80px';
+            }
+            buttonActive = !buttonActive; // Toggle status
+        }
+    });
+}
+
+toggleMenuButton(); 
+
+// check if mobile device
+function isTouchDevice() {
+    return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
+}
+
+/*---------------*/
 // BUTTONS SLIDER
+
 const buttonNext = document.querySelector('.btn-nxt');
 const buttonPrevious = document.querySelector('.btn-pre');
 const slider = document.querySelector('.topic-slider');
@@ -22,8 +78,9 @@ buttonPrevious.addEventListener('click', () => {
     }
 });
 
-
+/*---------------*/
 // HOVER EFFECT SLIDER
+
 const hoveredItems = document.querySelectorAll('.report-item, .photos-item');
 
 hoveredItems.forEach(item => {
@@ -40,7 +97,7 @@ hoveredItems.forEach(item => {
     });
 });
 
-
+/*---------------*/
 // TRAVEL REPORT SEARCH INPUT
 
 document.getElementById('searchInput').addEventListener('input', function (event) {
@@ -59,7 +116,7 @@ document.getElementById('searchInput').addEventListener('input', function (event
     });
 });
 
-
+/*---------------*/
 // TRAVEL REPORT FILTER BY YEAR AND TAG
 
 document.addEventListener("DOMContentLoaded", function() {
@@ -69,7 +126,7 @@ document.addEventListener("DOMContentLoaded", function() {
   
     dropdownYearLinks.forEach(function(link) {
       link.addEventListener('click', function(event) {
-        event.preventDefault(); // Verhindert das Standardverhalten des Links (keine URL)
+        event.preventDefault(); // verhindert Standardverhalten vom Link (keine URL)
         
         var year = link.textContent.trim(); // get text of link
         dropdownYearButton.textContent = year; // change button text
@@ -89,7 +146,7 @@ document.addEventListener("DOMContentLoaded", function() {
     var dropdownAllOption = document.querySelector('.dropdown-content li:first-child');
     dropdownAllOption.addEventListener('click', function(event) {
       event.preventDefault();
-      dropdownYearButton.textContent = 'Year'; // Reset Dropdown-Text
+      dropdownYearButton.textContent = 'Year'; // reset Dropdown-Text
       resetFilterByYear(); 
       applyFilters(); 
     });
@@ -121,7 +178,7 @@ function applyFilters() {
                 return activeTagName === tagLink.textContent.trim().substring(1);
             });
         });
-        reportItem.style.display = isActiveYear && isActiveTag && allActiveTagsPresent ? 'block' : 'none'; // Berücksichtigen sowohl des ausgewählten Jahres als auch der Tags
+        reportItem.style.display = isActiveYear && isActiveTag && allActiveTagsPresent ? 'block' : 'none'; // Cheack for year and also active tag names
     });
 }
 
