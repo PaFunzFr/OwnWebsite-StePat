@@ -13,19 +13,27 @@ function isMouseLeavingHorizontally(event, element) {
 // HOVER EVENT Computer
 getNavButton.addEventListener('mouseover', () => {
     if (!isTouchDevice()) { // is Computer?
-        getMenuButtonList.style.top = '80px';
+        setTimeout(() => {
+            getMenuButtonList.style.top = '80px';
+        }, 100);
     }
 });
 
 getNavButton.addEventListener('mouseleave', (event) => {
     if (!isTouchDevice() && isMouseLeavingHorizontally(event, getNavButton)) { // is Computer and mouse leacing in x?
-        getMenuButtonList.style.top = '';
+
+        setTimeout(() => {
+                getMenuButtonList.style.top = '';
+        }, 200); 
     }
 });
 
 getDropDownContainer.addEventListener('mouseleave', () => {
     if (!isTouchDevice()) { // is Computer?
-        getMenuButtonList.style.top = '';
+        
+        setTimeout(() => {
+                getMenuButtonList.style.top = '';
+        }, 200); 
     }
 });
 
@@ -51,6 +59,32 @@ toggleMenuButton();
 function isTouchDevice() {
     return 'ontouchstart' in window || navigator.maxTouchPoints > 0;
 }
+
+/*---------------*/
+//FREEZE SCROLL SNAP (SCROLL ISSUE ANCHOR BUTTONS)
+document.querySelectorAll('.anchorLink').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+
+        const target = document.querySelector(this.getAttribute('href'));
+
+        // temp deactivation of scrollSnapType
+        const slider = document.getElementById('slider');
+        slider.style.scrollSnapType = 'none';
+
+        // scroll to target
+        target.scrollIntoView({ behavior: 'smooth' });
+
+        let scrollTimeout;
+        slider.addEventListener('scroll', function onScroll() {
+            clearTimeout(scrollTimeout);
+            scrollTimeout = setTimeout(() => {
+                slider.style.scrollSnapType = 'x mandatory';
+                slider.removeEventListener('scroll', onScroll);
+            }, 100); // adjust the timeout as needed
+        });
+    });
+});
 
 /*---------------*/
 // BUTTONS SLIDER
@@ -196,3 +230,20 @@ function resetFilterByYear() {
         reportItem.style.display = 'block'; // show all repotItems
     });
 }
+
+/*--------------------------*/
+/* REPORT POPUP PIC GALLERY HEIGHT */
+
+document.addEventListener("DOMContentLoaded", function() {
+    const gallery = document.querySelector('.picture-gallery');
+    const pics = gallery.querySelectorAll('.tourPic');
+    const numPics = pics.length / 2; // 2 columns for each
+    const gap = 5; // 10px gap
+    const initialHeight = 110; // 110px / offset
+
+    const picHeight = `calc((100vh - ${initialHeight}px - (${gap}px * (${numPics} - 1))) / ${numPics})`;
+
+    pics.forEach(pic => {
+        pic.style.height = picHeight;
+    });
+});
