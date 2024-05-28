@@ -23,11 +23,10 @@
     <div class="menuButton">
       <ul>
           <li><a href="#">ABOUT</a></li>
-          <li><a href="#">ON TOUR</a></li>
-          <li><a href="#">GRAVEL</a></li>
-          <li><a href="#">PHOTOGRAPHY</a></li>
+          <li><a href="#onTour">ON TOUR</a></li>
+          <li><a href="#gravel">GRAVEL</a></li>
+          <li><a href="#photo">PHOTOGRAPHY</a></li>
           <li><a href="#">VEGAN</a></li>
-          <li><a href="#">CONTACT</a></li>        
       </ul>
    </div>
 </nav>
@@ -40,25 +39,20 @@
 
         <div class="navButton">MENU</div>
        <!-- <img class="navButton" src="/01-resources/13-images/static_menu.png" width="30" height="30" id="menuImage"> -->
-
         <nav class="navBar">
             <div class="navBar-top">
                 <ul>
                     <li><a href="#">ABOUT</a></li>
-                    <li><a href="#">ON TOUR</a></li>
-                    <li><a href="#">GRAVEL</a></li>
-                    <li><a href="#">PHOTOGRAPHY</a></li>
-                    <li><a href="#">VEGAN</a></li>
+                    <li><a class="anchorLink" href="#onTour">ON TOUR</a></li>
+                    <li><a class="anchorLink" href="#gravel">GRAVEL</a></li>
+                    <li><a class="anchorLink" href="#photo">PHOTOGRAPHY</a></li>
+                    <li><a class="anchorLink" href="#">VEGAN</a></li>
                     <li><a href="#">CONTACT</a></li>        
                 </ul>
             </div>
         </nav>
-
     </div>
-  
 </header>
-
-
 
 <!-- MAIN CONTENT -->
 <main> 
@@ -109,7 +103,7 @@
 
     <ul class="topic-slider" id="slider">
         <li class="slider-item">
-            <a href="#" class="slider-card">
+            <a href="#onTour" class="slider-card anchorLink">
 
               <video autoplay muted loop plays-inline playsinline class="slider-banner" id="video-banner" height="210">
                 <source src="01-resources/13-images/final_smaller.mp4" type="video/mp4"></source>
@@ -124,7 +118,7 @@
           </li>
 
           <li class="slider-item">
-            <a href="#" class="slider-card">
+            <a href="#gravel" class="slider-card anchorLink">
 
               <video autoplay muted loop plays-inline playsinline class="slider-banner" id="video-banner" height="210">
                 <source src="01-resources/13-images/final_smaller.mp4" type="video/mp4"></source>
@@ -139,7 +133,7 @@
           </li>
 
           <li class="slider-item">
-            <a href="#" class="slider-card">
+            <a href="#photo" class="slider-card anchorLink">
 
               <video autoplay muted loop plays-inline playsinline class="slider-banner" id="video-banner" height="210">
                 <source src="01-resources/13-images/final_smaller.mp4" type="video/mp4"></source>
@@ -154,7 +148,7 @@
           </li>
 
           <li class="slider-item">
-            <a href="#" class="slider-card">
+            <a href="#" class="slider-card anchorLink">
 
               <video autoplay muted loop plays-inline playsinline class="slider-banner" id="video-banner" height="210">
                 <source src="01-resources/13-images/final_smaller.mp4" type="video/mp4"></source>
@@ -172,7 +166,40 @@
     </section>
 
     <!-- TRAVEL REPORTS -->
-    <section class="travel-reports" id="travel-reports">
+    <section class="travel-reports">
+      <div class="anchor" id="onTour"></div>
+
+<div class="popup-background">
+  <div class="report-popup-container">
+    <div class="popup-left-top">
+      <h3 class="popup-title">Das Ist der Titel der Tour</h3>
+      <p class="popup-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+        porro, voluptas id impedit voluptates deserunt asperiores commodi,
+        sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+        porro, voluptas id impedit voluptates deserunt asperiores commodi,
+        sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+        Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+        porro, voluptas id impedit voluptates deserunt asperiores commodi,
+        sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?</p>
+    </div>
+    <div class="popup-right">
+      <ul class="picture-gallery">
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+          <li><img class="tourPic"></li>
+      </ul>
+    </div>
+    <div class="popup-left-bottom">
+      <div class="video"><iframe src="https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479" frameborder="0" allow="autoplay; fullscreen; picture-in-picture; clipboard-write" title="Oberstdorf Part Two 2023" ></iframe></div>
+    </div>
+  </div>
+</div>
 
       <div class="reports-headline">
         <h2 class="headline2">ON TOUR.</h2>
@@ -224,6 +251,7 @@
                 <p class="report-subtitle">Kurztrip nach Oberstdorf im Frühsommer</p>
               </div>
             </a>
+
           </div>
 
           <div class="report-item year2023">
@@ -378,6 +406,7 @@
     </section>
     <!-- GRAVEL BIKE -->
     <section class="gravelBike" id="gravelBike">
+      <div class="anchor" id="gravel"></div>
 
       <div class="gravel-headline">
         <h2 class="headline2">GRAVEL. </h2>
@@ -394,6 +423,7 @@
     </section>
     <!-- PHOTOGRAPHY -->
     <section class="photos-reports" id="photos-reports">
+      <div class="anchor" id="photo"></div>
 
       <div class="photos-headline">
         <h2 class="headline2">PHOTOGRAPHY. </h2>
@@ -470,5 +500,6 @@
 </body>
 
 <script defer src="01-resources/12-js/main.js"></script>
+<script src="https://player.vimeo.com/api/player.js"></script>
 
 </html>
