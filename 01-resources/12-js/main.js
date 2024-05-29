@@ -235,15 +235,31 @@ function resetFilterByYear() {
 /* REPORT POPUP PIC GALLERY HEIGHT */
 
 document.addEventListener("DOMContentLoaded", function() {
-    const gallery = document.querySelector('.picture-gallery');
-    const pics = gallery.querySelectorAll('.tourPic');
-    const numPics = pics.length / 2; // 2 columns for each
-    const gap = 5; // 10px gap
-    const initialHeight = 110; // 110px / offset
+    function setGalleryImageHeights() {
+        const gallery = document.querySelector('.picture-gallery');
+        const pics = gallery.querySelectorAll('.tourPic');
+        const numPics = pics.length / 2; // 2 columns for each
+        const gap = 5; // 10px gap
+        const initialHeight = 152; // 152px / offset
 
-    const picHeight = `calc((100vh - ${initialHeight}px - (${gap}px * (${numPics} - 1))) / ${numPics})`;
+        const picHeight = `calc((100vh - ${initialHeight}px - (${gap}px * (${numPics} - 1))) / ${numPics})`;
 
-    pics.forEach(pic => {
-        pic.style.height = picHeight;
-    });
+        pics.forEach(pic => {
+
+            if (window.innerWidth > 1054) {
+                    pic.style.height = picHeight;
+
+            } else if (window.innerWidth > 550) {
+                    pic.style.height = `calc(${picHeight} / 1.6)`;
+
+            } else{
+                    pic.style.height = '28vh';
+                }
+
+        });
+    }
+        setGalleryImageHeights();
+
+    // Update heights on window resize
+    window.addEventListener('resize', setGalleryImageHeights);
 });
