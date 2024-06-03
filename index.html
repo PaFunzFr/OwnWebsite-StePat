@@ -22,11 +22,11 @@
 <nav class="buttonMenuContainer">
     <div class="menuButton">
       <ul>
-          <li><a href="#">ABOUT</a></li>
-          <li><a href="#onTour">ON TOUR</a></li>
-          <li><a href="#gravel">GRAVEL</a></li>
-          <li><a href="#photo">PHOTOGRAPHY</a></li>
-          <li><a href="#">VEGAN</a></li>
+          <li><a class="generalBtn" href="#">ABOUT</a></li>
+          <li><a class="generalBtn" href="#onTour">ON TOUR</a></li>
+          <li><a class="generalBtn" href="#gravel">GRAVEL</a></li>
+          <li><a class="generalBtn" href="#photo">PHOTOGRAPHY</a></li>
+          <li><a class="generalBtn" href="#">VEGAN</a></li>
       </ul>
    </div>
 </nav>
@@ -42,12 +42,12 @@
         <nav class="navBar">
             <div class="navBar-top">
                 <ul>
-                    <li><a href="#">ABOUT</a></li>
-                    <li><a class="anchorLink" href="#onTour">ON TOUR</a></li>
-                    <li><a class="anchorLink" href="#gravel">GRAVEL</a></li>
-                    <li><a class="anchorLink" href="#photo">PHOTOGRAPHY</a></li>
-                    <li><a class="anchorLink" href="#">VEGAN</a></li>
-                    <li><a href="#">CONTACT</a></li>        
+                    <li><a class="generalBtn" href="#">ABOUT</a></li>
+                    <li><a class="anchorLink generalBtn" href="#onTour">ON TOUR</a></li>
+                    <li><a class="anchorLink generalBtn" href="#gravel">GRAVEL</a></li>
+                    <li><a class="anchorLink generalBtn" href="#photo">PHOTOGRAPHY</a></li>
+                    <li><a class="anchorLink generalBtn" href="#">VEGAN</a></li>
+                    <li><a class="generalBtn" href="#">CONTACT</a></li>        
                 </ul>
             </div>
         </nav>
@@ -66,7 +66,7 @@
 
             <div class="aboutMe-content">
   
-              <p class="aboutMe-subtitle">EIN HERZLICHES <span class="span">EI GUDE!</span> - WIR SIND</p>
+              <p class="aboutMe-subtitle"><span class="span">EI GUDE</span> - WIR SIND</p>
   
               <h1 class="headline">
                 <span class="span">STE</span>FFI & <span>PAT</span>RICK
@@ -85,7 +85,6 @@
     </section>
     <!-- MAIN TOPICS -->
     <section class="topics" id="topics">
-
         <div class="topics-title">
             <h2 class="headline2">MAIN TOPICS</h2>
             <p class="topics-text">Das sind die wesentlichen Themen, über die wir berichten werden. Ein bunter Mix aus Reisen, Fotografie und veganen Rezepten zum Nachkochen.</p>
@@ -110,8 +109,8 @@
               </video>
 
               <div class="slider-content">
-                <span class="slider-title">ON TOUR</span>
-                <p class="slider-subtitle">Alles rund ums Reisen</p>
+                <span class="slider-title">ON TOUR.</span>
+                <!-- <p class="slider-subtitle">Alles rund ums Reisen</p> -->
               </div>
               
             </a>
@@ -125,8 +124,8 @@
               </video>
 
               <div class="slider-content">
-                <span class="slider-title">GRAVEL</span>
-                <p class="slider-subtitle">Unterwegs auf dem Rad</p>
+                <span class="slider-title">GRAVEL.</span>
+                <!-- <p class="slider-subtitle">Unterwegs auf dem Rad</p> -->
               </div>
               
             </a>
@@ -140,8 +139,8 @@
               </video>
 
               <div class="slider-content">
-                <span class="slider-title">PHOTOGRAPHY</span>
-                <p class="slider-subtitle">Momente in Bildern</p>
+                <span class="slider-title">PHOTOGRAPHY.</span>
+                <!-- <p class="slider-subtitle">Momente in Bildern</p> -->
               </div>
               
             </a>
@@ -155,8 +154,8 @@
               </video>
 
               <div class="slider-content">
-                <span class="slider-title">VEGAN</span>
-                <p class="slider-subtitle">Rezepte zum Nachkochen</p>
+                <span class="slider-title">VEGAN.</span>
+                <!-- <p class="slider-subtitle">Rezepte zum Nachkochen</p> -->
               </div>
               
             </a>
@@ -171,6 +170,13 @@
 
 <div class="popup-background">
   <div class="report-popup-container">
+    <div class="closeBtn">
+      <svg xmlns="http://www.w3.org/2000/svg" width="30" height="30" viewBox="0 0 30 30">
+        <circle cx="15" cy="15" r="14"/>
+        <line x1="8" y1="8" x2="22" y2="22"/>
+        <line x1="22" y1="8" x2="8" y2="22"/>
+      </svg>
+    </div>
     <div class="popup-left-top">
       <h3 class="popup-title">Das Ist der Titel der Tour</h3>
       <p class="popup-text">Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
@@ -200,7 +206,7 @@
 
       <div class="reports-headline">
         <h2 class="headline2">ON TOUR.</h2>
-        <p>Unsere Reiseberichte</p>
+        <p>Alles rund ums Reisen</p>
       </div>
 
         <div class="reports-search">
@@ -230,7 +236,7 @@
       <div class="reports-grid">
 
         <div class="report-item year2023">
-            <a href="#" class="report-card">
+            <a href="#" class="report-card" id="oberstdorf2">
 
               <img class="travel-banner" src="#">
 
@@ -252,7 +258,7 @@
           </div>
 
           <div class="report-item year2023">
-            <a href="#" class="report-card">
+            <a href="#" class="report-card" id="meran">
 
               <img class="travel-banner" src="#">
 
@@ -273,7 +279,7 @@
           </div>
 
           <div class="report-item year2023">
-            <a href="#" class="report-card">
+            <a href="#" class="report-card" id="mittenwald">
 
               <img class="travel-banner" src="#">
 
