@@ -57,7 +57,7 @@ header ::-webkit-scrollbar {
     --col-black-075: hsla(0, 0, 0, 0.75);
     --col-black-050: hsla(0, 0, 0, 0.5);
     --col-black-025: hsla(0, 0, 0, 0.25);
-
+/*
     --col-orange1-100: hsla(37, 65%, 62%, 1);
     --col-orange1-075: hsla(37, 65%, 62%, 0.75);
     --col-orange1-050: hsla(37, 65%, 62%, 0.5);
@@ -67,6 +67,16 @@ header ::-webkit-scrollbar {
     --col-orange2-075: hsla(37, 100%, 83%, 0.75);
     --col-orange2-050: hsla(37, 100%, 83%, 0.5);
     --col-orange2-025: hsla(37, 100%, 83%, 0.25);
+*/
+    --col-orange1-100: hsla(37, 100%, 45%, 1);
+    --col-orange1-075: hsla(37, 100%, 45%, 0.75);
+    --col-orange1-050: hsla(37, 100%, 45%, 0.5);
+    --col-orange1-025: hsla(37, 100%, 45%, 0.25);
+
+    --col-orange2-100: hsla(40, 100%, 62%, 1);
+    --col-orange2-075: hsla(40, 100%, 62%, 0.75);
+    --col-orange2-050: hsla(40, 100%, 62%, 0.5);
+    --col-orange2-025: hsla(40, 100%, 62%, 0.25);
 
     --col-blue1-100: hsla(190, 38%, 10%, 1);
     --col-blue1-075: hsla(190, 38%, 10%, 0.75);
@@ -88,15 +98,20 @@ header ::-webkit-scrollbar {
     --col-blue4-050: hsla(188, 59%, 85%, 0.5);
     --col-blue4-025: hsla(188, 59%, 85%, 0.25);
 
+    --col-blue5-100: #000c0e;
+
     --col-gradient-main: linear-gradient(to top, #535e40, #475b43, #3c5847, #35544a, #304f4c, #2d4a4a, #2b4547, #2a4044, #263a3e, #223438, #1f2f32, #1b292c);
     --col-gradient-content1: linear-gradient(to left top, #2f484c, #2a4044, #25383c, #203034, #1b292c);
     --col-gradient-content2: linear-gradient(to left top, #0f3035, #132e33, #162c31, #192b2e, #1b292c);
     --col-gradient-content3: linear-gradient(to left top, #0f30357b, #132e337a, #162c3181, #192b2e, #1b292c);
-    --col-gradient-content4: linear-gradient(to bottom, #e5ded1, #ddd5c4, #d6cbb7, #ad9466, #665636);
+   /* --col-gradient-content4: linear-gradient(to bottom, #e5ded1, #ddd5c4, #d6cbb7, #ad9466, #665636); */
+    --col-gradient-content4: linear-gradient(to bottom, #e5ded1, #ddd5c4, #d7a84e, #d69a29, #d18d04);
     --col-gradient-content5: linear-gradient(to bottom, #1b292c, #1c2b2f, #1e2e31, #1f3034, #203337, #21353a, #23383c, #243a3f, #263d42, #284045, #2b4349, #2d464c);
     --col-gradient-content6: linear-gradient(to right bottom, #0d1b1e, #0d1c20, #0d1e21, #0c1f23, #0c2125, #0f2429, #11282d, #142b31, #1a3238, #20383e, #273f45, #2d464c);
     --col-gradient-content7: linear-gradient(to right bottom, #0d1b1e, #132326, #192b2f, #1f3337, #253b40, #214245, #1d4849, #1b4f4b, #1d5440, #30582f, #48591a, #655605);
     --col-gradient-content8: linear-gradient(to bottom, hsla(187, 38%, 25%, 1), hsla(190, 38%, 10%, 1) 80%);
+    --col-gradient-content9: linear-gradient(to top, #011012, #000c0e);
+    /* --col-gradient-content9: linear-gradient(to top, #011012, #040c11, #06070c, #050305, #000000); */
   
     /* border radius */
     --radius-4: 4px;
@@ -166,21 +181,16 @@ button {
 }
 
 .navBar-top a {
-    background: var(--col-gradient-content4);
+    color: var(--col-blue4-075);
     opacity: 0.9;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
     text-decoration: none;
+    font-weight: var(--font-weight-norm);
+    transition: color 0.6s ease;
 }
 
 .navBar-top a:hover {
-    background: var(--col-orange1-100);
+    color: var(--col-orange1-100);
     opacity: 1;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
 }
 
 /* DROPDOWN BAR NAVIGATION */
@@ -215,11 +225,14 @@ button {
 
 .menuButton ul li a {
     font-size: var(--fontSize-7);
-    background: var(--col-gradient-content4);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--col-blue4-075);
     text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.menuButton ul li a:hover {
+    cursor: pointer;
+    color: var(--col-orange1-100);
 }
 
 .menuButton ul li:last-child {
@@ -235,7 +248,7 @@ button {
     right: 0;
     height: 80px;
     width: 100%;
-    background: var(--col-blue1-100);
+    background: var(--col-blue5-100);
     border-bottom: 0.5pt solid var(--col-blue4-025);
     z-index: 100;
 }
@@ -260,22 +273,15 @@ button {
     align-items: center;
     font-size: var(--fontSize-5);
     font-weight: var(--font-weight-Bold);
-    background: var(--col-gradient-content4) 50%;
-    background-position: center top;
-    background-size: 100% 33%;
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
+    color: var(--col-blue4-075);
+    font-weight: var(--font-weight-norm);
     text-decoration: none;
+    transition: color 0.6s ease;
 }
 
-
 .navButton:hover {
-    background: var(--col-orange1-100);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    text-decoration: none;
+    color: var(--col-orange1-100);
+    cursor: pointer;
 }
 
 /* MAIN */
@@ -284,7 +290,7 @@ main {
     display: flex;
     flex-direction: column;
     padding-top: 80px;
-    background: var(--col-gradient-content7);
+    background: var(--col-gradient-content9);
     background-size: 400% 400%;
     z-index: 0;
     justify-content: center;
@@ -321,19 +327,19 @@ main {
     background-color: white;
     background-repeat: no-repeat;
     z-index: 0;
-    -webkit-mask-image: linear-gradient(rgba(0,0,0,0.5), transparent);
-    mask-image: linear-gradient(rgba(0,0,0,0.5), transparent);
+    -webkit-mask-image: linear-gradient(rgba(0,0,0,0.9), transparent);
+    mask-image: linear-gradient(rgba(0,0,0,0.9), transparent);
     animation: picSlider 15s ease infinite;
 }
 
 @keyframes picSlider {
     0%, 100% {
         background-image: url(/01-resources/13-images/IMG_5105.jpg);
-        opacity: 0.7;
+        opacity: 0.8;
     }
     50% {
         background-image: url(/01-resources/13-images/2.jpg);
-        opacity: 0.7;
+        opacity: 0.8;
     }
 }
 
@@ -346,13 +352,13 @@ main {
 }
 
 .aboutMe-subtitle {
-    color: var(--col-orange2-075);
+    color: var(--col-blue1-100);
+    transform: translateY(20px);
 }
 
 .aboutMe-subtitle span {
-    font-style:italic;
     font-weight: var(--font-weight-Bold);
-    color: var(--col-orange2-100);
+    color: var(--col-blue1-100);
 }
 
 .aboutMe-content {
@@ -363,9 +369,9 @@ main {
 }
 
 .headline {
-    color: var(--col-blue1-050);
-    -webkit-text-stroke: 1px var(--col-blue4-100);
-    line-height: 40pt;
+    color: var(--col-blue1-100);
+    -webkit-text-stroke: 1.5pt var(--col-blue5-100);
+    line-height: 0pt;
 }
 
 .headline span {
@@ -375,6 +381,7 @@ main {
     -webkit-text-fill-color: transparent;
     background-size: 200% 200%;
     animation: changeColor 5s ease infinite;
+    -webkit-text-stroke: 1.5pt var(--col-blue1-100);
     
 }
 
@@ -412,13 +419,16 @@ main {
     margin: 0;
     position: relative;
     width: 90vw;
-    height: 400px;
+    height: 350px;
     background: var(--col-blue1-100);
     border: 0.1vh solid var(--col-blue4-025);
     border-radius: var(--radius-16);
     max-width: 1275px;
     z-index: 1;
+    padding-bottom: 15px;
 }
+
+
 
 .topics ::-webkit-scrollbar {
     width: 0;
@@ -426,13 +436,15 @@ main {
 }
 
 .topics-title {
+
     padding: 0px 15px;
     color: var(--col-blue4-075);
 }
 
 .topics-title h2 {
-    font-size: 18pt;
-    color: var(--col-orange2-100);
+    font-size: var(--fontSize-1);
+    color: var(--col-orange2-075);
+    font-weight: var(--font-weight-Bold);
 }
 
 .topics-text {
@@ -475,7 +487,7 @@ main {
     z-index: 1;
     padding-left: 15px;
     padding-right: 15px;
-    margin-bottom: 15px;
+    margin-bottom: 0px;
 }
 
 .topic-slider li:hover { 
@@ -518,8 +530,8 @@ main {
 
 .slider-content {
     position: relative;
-    margin-left: calc(15px + 0px);
-    top: -70px;
+    margin-left: calc(15px);
+    transform: translateY(-40px);
 }
 
 .slider-title {
@@ -530,7 +542,7 @@ main {
 
 .slider-subtitle {
     font-size: var(--fontSize-7);
-    color: var(--col-blue4-100);
+    color: var(--col-orange2-100);
     padding: 0;
     text-shadow: 1px 2px 1px black;
     line-height: 0pt;
@@ -538,7 +550,8 @@ main {
 
 .slider-item a {
     text-decoration: none;
-    color: var(--col-orange2-100);
+    color: var(--col-blue4-100);
+    font-weight: var(--font-weight-Bold);
 }
 
 .slider-item a:hover {
@@ -880,12 +893,13 @@ main {
 
 .popup-background {
     display: none; /*toggle POPUP: flex/none */
+    opacity: 0;
     position: fixed;
     left: 0;
     top: 80px;
     width: 100%;
     z-index: 95;
-    background: var(--col-gradient-content7);
+    background: var(--col-gradient-content9);
 }
 
 .report-popup-container {
@@ -905,9 +919,33 @@ main {
     transform: translateX(-50%);
 }
 
+.closeBtn {
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    left: calc(50% - 50px);
+    top: 37px;
+    z-index: 99;
+    fill: var(--col-blue4-100);
+  }
+  
+  .closeBtn:hover {
+    cursor: pointer;
+    fill: var(--col-orange2-100);
+  }
+
+  .closeBtn svg {
+    width: 100%;
+    height: 100%;
+  }
+  
+  .closeBtn svg line {
+    stroke: var(--col-blue1-100); /* Standardfarbe für das Kreuz */
+    stroke-width: 2; /* Standardstrichstärke für das Kreuz */
+  }
+
 .popup-left-top {
     grid-area: leftTop;
-    background: var(--col-gradient-content9);
     padding: 20px 25px 10px 20px;
     margin-top: 10px;
     margin-left: 15px;
@@ -934,6 +972,12 @@ main {
     margin: 20px 20px 0 0;
     gap: 5px 8px;
     transform: translateY(2px);
+    scrollbar-width: none;
+}
+
+.popup-right::-webkit-scrollbar {
+    width: 0;
+    height: 0;
 }
 
 .picture-gallery li img{
@@ -942,6 +986,7 @@ main {
     object-fit:cover;
     opacity: 1;
     box-shadow:0px 0px 0px 1px var(--col-blue4-025);
+    border-radius: var(--radius-8);
 }
 
 .picture-gallery li img:hover {
@@ -966,7 +1011,8 @@ main {
 .popup-title {
     font-size: var(--fontSize-1);
     padding: 0;
-    margin: 20px 0 0 0;
+    margin: 0;
+    max-width: 80%;
     background: var(--col-gradient-content4);
     -webkit-background-clip: text;
     background-clip: text;
@@ -975,7 +1021,7 @@ main {
 }
 
 .popup-text {
-    font-size: var(--fontSize-7);
+    font-size: var(--fontSize-6);
     line-height: var(--lineH-1);
     color: var(--col-blue4-075);
 }
@@ -987,7 +1033,6 @@ main {
     padding: 20px;
     width: calc(50% - 53px);
     height: calc((100% - 80px) * 2 / 3);
-    background: var(--col-gradient-content9);
 }
 
 /* Responsiveness */
@@ -1011,6 +1056,12 @@ main {
     }
 }
 
+@media screen and (max-width: 700px) {
+    .popup-title {
+        font-size: var(--fontSize-2);
+    }
+}
+
 @media screen and (min-width: 600px) and (max-width: 999px) {
 
     .headline {
@@ -1028,7 +1079,16 @@ main {
     .aboutMe-subtitle {
         font-size: var(--fontSize-3);
     }
+
+    .topics-title h2 {
+        font-size: var(--fontSize-1);
+    }
+    
+    .topics-text {
+        font-size: var(--fontSize-8);
+    }
 }
+
 
 @media screen and (max-width: 599px) {
 
@@ -1047,6 +1107,27 @@ main {
     .aboutMe-subtitle {
         font-size: var(--fontSize-4);
     }
+
+    .topics-title h2 {
+        font-size: var(--fontSize-2);
+    }
+    
+    .topics-text {
+        font-size: var(--fontSize-8);
+    }
+}
+
+@media screen and (max-width: 505px) {
+
+    .headline {
+        font-size: 32pt
+    }
+
+    .aboutMe-subtitle {
+        font-size: var(--fontSize-5);
+        transform: translateY(15px);
+    }
+    
 }
 
 @media screen and (max-width: 400px) {
@@ -1059,12 +1140,12 @@ main {
         font-size: var(--fontSize-3);
     }
 
-    p {
-        font-size: var(--fontSize-7);
+    .aboutMe-subtitle {
+        transform: translateY(25px);
     }
 
-    .aboutMe-subtitle {
-        font-size: var(--fontSize-5);
+    p {
+        font-size: var(--fontSize-7);
     }
 
     .headline {
@@ -1213,7 +1294,7 @@ main {
     */
 
     .popup-title {
-        margin-top: 30px;
+        margin-top: 10px;
     }
 
     .popup-text {
@@ -1325,6 +1406,11 @@ main {
         gap: 10px;
     }
 
+    .closeBtn {
+        left: calc(100% - 55px);
+        top: 55px;
+    }
+
     .popup-left-top {
         padding: 10px 40px 10px 40px;
         margin-top: 10px;
@@ -1370,7 +1456,7 @@ main {
 
 }
 
-
+/* HEADER NAVIGATION SWAP */
 @media screen and (max-width: 850px) {
 
     .navBar {
@@ -1379,6 +1465,13 @@ main {
 
     .navButton {
         display: flex;
+    }
+}
+
+@media screen and (max-width: 700px) {
+    .closeBtn {
+        left: calc(100% - 55px);
+        top: 50px;
     }
 }
 
@@ -1452,6 +1545,11 @@ main {
         gap: 10px;
     }
 
+    .closeBtn {
+        left: calc(100% - 55px);
+        top: 45px;
+    }
+
     .popup-left-top {
         padding: 10px 0px 0px 20px;
         margin-top: 10px;
@@ -1494,7 +1592,7 @@ main {
     }
 
     .popup-text {
-        font-size: var(--fontSize-8);
+        font-size: var(--fontSize-7);
     }
 
     .video iframe {
@@ -1529,11 +1627,16 @@ main {
         margin-right: -3px;
     }
 
+    .closeBtn {
+        left: calc(100% - 55px);
+        top: 35px;
+    }
+
 }
 
 @media screen and (max-height: 750px), (max-width: 350px) {
     .popup-text {
-        font-size: var(--fontSize-9);
+        font-size: var(--fontSize-8);
     }
 }
 
