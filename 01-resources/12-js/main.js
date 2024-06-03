@@ -255,11 +255,160 @@ document.addEventListener("DOMContentLoaded", function() {
             } else{
                     pic.style.height = '28vh';
                 }
-
         });
     }
         setGalleryImageHeights();
 
-    // Update heights on window resize
+    // update heights on window resize
     window.addEventListener('resize', setGalleryImageHeights);
+});
+
+/* POPUP CONTENT */
+document.addEventListener("DOMContentLoaded", function() {
+
+    // tour informations
+    const tours = [
+        { tourId: 'oberstdorf1',
+          title: 'Oberstdorf im Juni',
+          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro, voluptas id impedit voluptates deserunt asperiores commodi,
+            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro.`,
+          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+          picturePath: '01-resources/meran/'
+        },
+    
+        { tourId: 'oberstdorf2',
+          title: 'Oberstdorf ganz toll und schön',
+          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro, voluptas id impedit voluptates deserunt asperiores commodi,
+            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro.`,
+          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+          picturePath: '01-resources/meran/'
+        },
+    
+        { tourId: 'meran',
+          title: 'Meran im Herbst',
+          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro, voluptas id impedit voluptates deserunt asperiores commodi,
+            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro.`,
+          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+          picturePath: '01-resources/meran/'
+        },
+    
+        { tourId: 'mittenwald',
+          title: 'Am Karwendel in Mittenwald',
+          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro, voluptas id impedit voluptates deserunt asperiores commodi,
+            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+            porro.`,
+          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+          picturePath: '01-resources/meran/'
+        },
+    ];
+
+const getReportElements = document.querySelectorAll('.report-card');
+const popupBackground = document.querySelector('.popup-background');
+const popupTitle = document.querySelector('.popup-title');
+const popupText = document.querySelector('.popup-text');
+const popupVideo = document.querySelector('.video iframe');
+const pictureGallery = document.querySelector('.picture-gallery');
+const closeButton = document.querySelector('.closeBtn');
+
+let initialized = false;
+
+  // INITIALIZATION at start
+  const initialTourData = tours[0]; // initial tour data (first)
+  popupTitle.textContent = initialTourData.title;
+  popupText.textContent = initialTourData.text;
+  popupVideo.src = initialTourData.videoId;
+  pictureGallery.innerHTML = '';
+
+    for (let i = 1; i <= 8; i++) {
+        const listItem = document.createElement('li');
+        const img = document.createElement('img');
+        img.src = `${initialTourData.picturePath}${i}.jpg`;
+        img.classList.add('tourPic');
+        listItem.appendChild(img);
+        pictureGallery.appendChild(listItem);
+    }
+
+    initialized = true;
+    popupBackground.style.display = 'none';
+
+  // paste tour Informations for report-card by click
+  getReportElements.forEach(function(reportCard) {
+    reportCard.addEventListener('click', function(event) {
+
+      event.preventDefault();
+      const reportCardId = reportCard.id;
+      const tourData = tours.find(tour => tour.tourId === reportCardId); // get tour Id from report-card
+
+      if (tourData) {
+
+        // update popup content only if not initialized or IDs does not match
+        if (!initialized || popupTitle.textContent !== tourData.title) {
+          popupTitle.textContent = tourData.title;
+          popupText.textContent = tourData.text;
+
+          // check if video needs to be updated
+          if (popupVideo.src !== tourData.videoId) {
+            popupVideo.src = tourData.videoId;
+          }
+
+          // update the picture gallery by ID
+          pictureGallery.innerHTML = '';
+          for (let i = 1; i <= 8; i++) {
+            const listItem = document.createElement('li');
+            const img = document.createElement('img');
+            img.src = `${tourData.picturePath}${i}.jpg`;
+            img.classList.add('tourPic');
+            listItem.appendChild(img);
+            pictureGallery.appendChild(listItem);
+          }
+
+          initialized = true;
+        }
+
+        // Show the popup
+        popupBackground.style.display = 'flex';
+        setTimeout(() => {
+            document.documentElement.style.overflow = 'hidden';
+            popupBackground.style.opacity = '1';
+            popupBackground.style.transition = 'opacity 0.4s ease';
+          }, 10);
+      }
+
+    });
+  });
+
+  // Close popup with button close
+  closeButton.addEventListener('click', function() {
+
+        popupBackground.style.opacity = '0';
+        document.documentElement.style.overflow = 'auto';
+        setTimeout(() => {
+          popupBackground.style.display = 'none';
+        }, 200);
+  });
+
+  // every button ".generalBtn" resets Popup
+  const generalBtn = document.querySelectorAll('.generalBtn');
+
+  generalBtn.forEach(button => {
+    button.addEventListener('click', function() {
+        popupBackground.style.opacity = '0';
+        document.documentElement.style.overflow = 'auto';
+        setTimeout(() => {
+          popupBackground.style.display = 'none';
+        }, 200);
+    });
+  });
+
 });
