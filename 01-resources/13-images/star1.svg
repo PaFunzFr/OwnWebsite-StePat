@@ -1,0 +1,8 @@
+<svg width="120" height="120" viewBox="0 0 120 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+<g id="star1">
+<rect id="Rectangle 1" x="57" y="4" width="7" height="110" rx="2" fill="#FFBE3D"/>
+<rect id="Rectangle 3" x="91.7175" y="25.6929" width="2.95522" height="91.2516" rx="1.47761" transform="rotate(45 91.7175 25.6929)" fill="#FFBE3D"/>
+<rect id="Rectangle 4" x="93.8071" y="90.2175" width="2.95522" height="91.2516" rx="1.47761" transform="rotate(135 93.8071 90.2175)" fill="#FFBE3D"/>
+<rect id="Rectangle 2" x="115.5" y="55.5" width="7" height="110" rx="2" transform="rotate(90 115.5 55.5)" fill="#FFBE3D"/>
+</g>
+</svg>
