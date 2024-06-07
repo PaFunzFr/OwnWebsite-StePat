@@ -128,6 +128,18 @@ body {
     padding: 0;
 }
 
+/* img prevent copy and drag */
+img, svg, p, h1, h2, a, span, li {
+    -webkit-user-drag: none;
+    -webkit-touch-callout: none;
+    -webkit-user-select: none;
+    -khtml-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    user-drag: none;
+}
+
 button {
     background: none;
     border: none;
@@ -322,7 +334,7 @@ button {
     background: var(--col-blue5-100);
     border-bottom: 0.5pt solid var(--col-blue4-025);
     z-index: 100;
-    overflow-x: hidden;
+    overflow: hidden;
 }
 
 .logoMain {
@@ -403,7 +415,7 @@ main {
     height: 100%;
     object-fit: cover;
     overflow: hidden;
-    opacity: 0.2;
+    opacity: 0.1;
     filter: blur(1px);
 }
 
@@ -1549,10 +1561,6 @@ main {
         margin-top: 10px;
     }
 
-    .popup-text {
-
-    }
-
     .video iframe {
         position: absolute;
         margin: 10px 15px 0 0;
@@ -1688,9 +1696,6 @@ main {
 
     .popup-title {
         margin-top: 30px;
-    }
-
-    .popup-text {
     }
 
     .video iframe {
