@@ -1,4 +1,10 @@
 /*---------------*/
+// prevent rightclick & drag 
+document.addEventListener('contextmenu', event => event.preventDefault());
+document.addEventListener('dragstart', event => event.preventDefault());
+
+
+/*---------------*/
 // NAVIGATION BAR
 
 const getNavButton = document.querySelector('.navButton');
