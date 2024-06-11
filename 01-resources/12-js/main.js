@@ -272,49 +272,72 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // tour informations
     const tours = [
-        { tourId: 'oberstdorf1',
-          title: 'Oberstdorf im Juni',
-          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro, voluptas id impedit voluptates deserunt asperiores commodi,
-            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro.`,
-          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
-          picturePath: '01-resources/meran/'
-        },
-    
-        { tourId: 'oberstdorf2',
-          title: 'Oberstdorf ganz toll und schön',
-          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro, voluptas id impedit voluptates deserunt asperiores commodi,
-            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro.`,
-          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
-          picturePath: '01-resources/meran/'
-        },
-    
-        { tourId: 'meran',
-          title: 'Meran im Herbst',
-          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro, voluptas id impedit voluptates deserunt asperiores commodi,
-            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro.`,
-          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
-          picturePath: '01-resources/meran/'
-        },
-    
-        { tourId: 'mittenwald',
-          title: 'Am Karwendel in Mittenwald',
-          text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro, voluptas id impedit voluptates deserunt asperiores commodi,
-            sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
-            porro.`,
-          videoId: 'https://player.vimeo.com/video/927052150?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
-          picturePath: '01-resources/meran/'
-        },
+            { tourId: 'oberstdorf1',
+              title: 'Oberstdorf im Juni',
+              text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro.`,
+              videoId: 'https://player.vimeo.com/video/927066427?h=861bc57781',
+              picturePath: '01-resources/14-data/tours/23/obstd1/'
+            },
+
+            { tourId: 'oberstdorf2',
+              title: 'Oberstdorf ganz toll und schön',
+              text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro.`,
+              videoId: 'https://player.vimeo.com/video/927052150?h=c38875e347',
+              picturePath: '01-resources/14-data/tours/23/obstd2/'
+            },
+
+            { tourId: 'meran',
+              title: 'Meran im Herbst',
+              text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro.`,
+              videoId: 'https://player.vimeo.com/video/928711344?h=74dfd5217d',
+              picturePath: '01-resources/14-data/tours/23/sdtrl/'
+            },
+        
+            { tourId: 'mittenwald',
+              title: 'Am Karwendel in Mittenwald',
+              text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro.`,
+              videoId: 'https://player.vimeo.com/video/928709228?h=992bb36770',
+              picturePath: '01-resources/14-data/tours/23/mtwld/'
+            },
+
+            { tourId: 'winterstein',
+                title: 'Tagesausflug am Winterstein',
+                text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                  sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro.`,
+                videoId: 'https://player.vimeo.com/video/927065990?h=59be4efab3',
+                picturePath: '01-resources/14-data/tours/23/wntst/'
+              },
+
+              { tourId: 'arnsburg',
+                title: 'Ausflug um das Kloster Arnsburg',
+                text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                  sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro.`,
+                videoId: 'https://player.vimeo.com/video/928713044?h=9e2b150a76',
+                picturePath: '01-resources/14-data/tours/23/klstar/'
+
+              },
     ];
 
 const getReportElements = document.querySelectorAll('.report-card');
