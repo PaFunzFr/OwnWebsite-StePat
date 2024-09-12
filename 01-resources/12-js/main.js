@@ -119,19 +119,49 @@ buttonPrevious.addEventListener('click', () => {
 });
 
 /*---------------*/
-// HOVER EFFECT SLIDER
+// HOVER EFFECT SLIDER & CARD ELEMENTS
 
-const hoveredItems = document.querySelectorAll('.report-item, .photos-item');
+const hoveredItems = document.querySelectorAll('.report-item, .photos-item, .slider-item');
 
 hoveredItems.forEach(item => {
     item.addEventListener('mouseover', () => {
-        const highlightedTexts = event.currentTarget.querySelector('.report-title, .photos-title');
-        highlightedTexts.style.fontWeight = 'bold';
+        const highlightedTexts = item.querySelector('.report-title, .photos-title');
+        const hoveredMedia = item.querySelector('.travel-banner, .slider-banner, .photos-banner');
+        const highlightedSliderText = item.querySelector('.slider-title');
+        //highlightedTexts.style.fontWeight = 'bold'; not used anymore
+        if (highlightedTexts) {
+          highlightedTexts.style.color = 'hsla(40, 100%, 62%, 1)';
+      }
+      
+        if (highlightedSliderText) {
+          highlightedSliderText.style.opacity = '1';
+        }
+
+      if (hoveredMedia) {   
+          hoveredMedia.style.filter = 'saturate(1)';
+          hoveredMedia.style.opacity = '1';
+      }
+
     });
 
     item.addEventListener('mouseout', () => {
-        const highlightedTexts = event.currentTarget.querySelector('.report-title, .photos-title');
-        highlightedTexts.style.fontWeight = '';
+        const highlightedTexts = item.querySelector('.report-title, .photos-title');
+        const hoveredMedia = item.querySelector('.travel-banner, .slider-banner, .photos-banner');
+        const highlightedSliderText = item.querySelector('.slider-title');
+        //highlightedTexts.style.fontWeight = ''; not used anymore
+        if (highlightedTexts) {
+          highlightedTexts.style.color = '';
+      }
+      
+      if (highlightedSliderText) {
+        highlightedSliderText.style.opacity = '0.9';
+      }
+
+      if (hoveredMedia || hoveredVideo) {
+          hoveredMedia.style.filter = 'saturate(0.4)';
+          hoveredMedia.style.opacity = '0.9';
+      }
+
     });
 });
 
@@ -284,7 +314,7 @@ document.addEventListener("DOMContentLoaded", function() {
             },
 
             { tourId: 'oberstdorf2',
-              title: 'Oberstdorf ganz toll und schön',
+              title: 'Fischen im Allgäu',
               text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
                 porro, voluptas id impedit voluptates deserunt asperiores commodi,
                 sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
@@ -327,16 +357,26 @@ document.addEventListener("DOMContentLoaded", function() {
                 picturePath: '01-resources/14-data/tours/23/wntst/'
               },
 
-              { tourId: 'arnsburg',
-                title: 'Ausflug um das Kloster Arnsburg',
+              { tourId: 'bayerischerWald',
+                title: 'Von Regensburg bis zum Laber',
                 text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
                   porro, voluptas id impedit voluptates deserunt asperiores commodi,
                   sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
                   Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
                   porro.`,
                 videoId: 'https://player.vimeo.com/video/928713044?h=9e2b150a76',
-                picturePath: '01-resources/14-data/tours/23/klstar/'
+                picturePath: '01-resources/14-data/tours/24/bayrwa/'
+              },
 
+              { tourId: 'walchensee',
+                title: 'Im Kaisergebirge',
+                text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                  sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                  Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                  porro.`,
+                videoId: 'https://player.vimeo.com/video/928713044?h=9e2b150a76',
+                picturePath: '01-resources/14-data/tours/24/wlchse/'
               },
     ];
 
