@@ -2,14 +2,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Slackside+One&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&family=Slackside+One&display=swap');
 
-header ::-webkit-scrollbar {
-    width: 0;
-    height: 0;
-}
+
 
 ::-webkit-scrollbar {
     background: var(--col-blue1-100);
     width: 5px;
+    height: 0;
 }
 
 ::-webkit-scrollbar-thumb {
@@ -19,6 +17,7 @@ header ::-webkit-scrollbar {
 ::-webkit-scrollbar-thumb:hover {
     background: rgba(255, 255, 255, 0.6);
 }
+
 
 /* CUSTOM PROPERTIES */
 
@@ -404,7 +403,7 @@ main {
     position: absolute;
     left: 0;
     top: 80px;
-    width: 100vw;
+    width: 100%;
 }
 
 .mapBackground img {
@@ -1170,7 +1169,6 @@ main {
     position: fixed;
     left: 0;
     top: 80px;
-    width: 100%;
     z-index: 95;
     background: var(--col-gradient-content9);
 }
