@@ -69,6 +69,7 @@ function isTouchDevice() {
 /*---------------*/
 //FREEZE SCROLL SNAP (SCROLL ISSUE ANCHOR BUTTONS)
 document.querySelectorAll('.anchorLink').forEach(anchor => {
+  
     anchor.addEventListener('click', function(e) {
         e.preventDefault();
 
