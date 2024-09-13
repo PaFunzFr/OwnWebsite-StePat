@@ -347,6 +347,20 @@ document.addEventListener("DOMContentLoaded", function() {
               picturePath: '01-resources/14-data/tours/23/mtwld/'
             },
 
+            { tourId: 'arnsburg',
+              title: 'Ums Kloster Arnsburg',
+              text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro, voluptas id impedit voluptates deserunt asperiores commodi,
+                sint fugiat rerum recusandae aperiam ut. Ad in quae eum nesciunt distinctio?
+                Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
+                porro.`,
+              videoId: 'https://player.vimeo.com/video/928713044?badge=0&amp;autopause=0&amp;player_id=0&amp;app_id=58479',
+
+
+              
+              picturePath: '01-resources/14-data/tours/23/klstar/'
+            },
+
             { tourId: 'winterstein',
                 title: 'Tagesausflug am Winterstein',
                 text: `Lorem ipsum, dolor sit amet consectetur adipisicing elit. Itaque sed,
