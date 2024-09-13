@@ -398,7 +398,6 @@ main {
 }
 
 
-
 .startBackground {
     position: absolute;
     left: 0;
@@ -1171,6 +1170,7 @@ main {
     top: 80px;
     z-index: 95;
     background: var(--col-gradient-content9);
+    width: 100%;
 }
 
 .report-popup-container {
