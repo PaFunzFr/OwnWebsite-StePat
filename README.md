@@ -1,7 +1,7 @@
 # My Personal Homepage (Second Project)
 
 Information:
-known issues with Safari browser.
+known issues with Safari browser (gravel bike not rendering properly).
 
 Recommended browser for review: Chrome.
 
