@@ -342,12 +342,13 @@ button {
     margin-top: 12px;
     left: 10px;
     width: 180px;
-    height:62px;
-    max-height: 62px;
+    height:58px;
+    max-height: 58px;
     width: auto;
     object-fit: contain;
     transform: translateY(1px);
     z-index: 100000;
+    transition: transform 0.2s ease-in-out;
 }
 
 .logoMain:hover {
