@@ -342,6 +342,8 @@ button {
     margin-top: 12px;
     left: 10px;
     width: 180px;
+    height:60px;
+    width: auto;
     transform: translateY(1px);
     z-index: 100000;
 }
