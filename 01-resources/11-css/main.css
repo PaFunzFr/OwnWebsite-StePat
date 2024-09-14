@@ -342,14 +342,17 @@ button {
     margin-top: 12px;
     left: 10px;
     width: 180px;
-    height:60px;
+    height:62px;
+    max-height: 62px;
     width: auto;
+    object-fit: contain;
     transform: translateY(1px);
     z-index: 100000;
 }
 
 .logoMain:hover {
     cursor: pointer;
+    transform: scale(1.005);
 }
 
 .navButton {
