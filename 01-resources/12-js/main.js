@@ -3,7 +3,6 @@
 document.addEventListener('contextmenu', event => event.preventDefault());
 document.addEventListener('dragstart', event => event.preventDefault());
 
-
 /*---------------*/
 // NAVIGATION BAR
 
@@ -494,3 +493,19 @@ let initialized = false;
   });
 
 });
+
+/* not used anymore (eventListener mainLogo) 
+
+const mainLogo = document.querySelector('.logoMain');
+
+mainLogo.addEventListener('mouseover', () => {
+      mainLogo.style.cursor = 'pointer';
+      console.log('auf dem Logo')
+});
+
+mainLogo.addEventListener('mouseleave', () => {
+  mainLogo.style.cursor = '';
+  console.log('nicht auf dem Logo')
+});
+
+*/
